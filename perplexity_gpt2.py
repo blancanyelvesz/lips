@@ -1,9 +1,12 @@
-#2025-01-26
+# 2025-01-28
 import os
 import numpy as np
 import pandas as pd
 import torch
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
+
+torch.set_num_threads(os.cpu_count())  # Use all available CPU cores
+
 
 # Define the window size for word-level perplexity
 window_size = 10
@@ -39,39 +42,28 @@ def process_file(filepath):
     return {
         'filename': os.path.basename(filepath),
         'sentence_mean': np.mean(sentence_perplexities),
-        #'sentence_std': np.std(sentence_perplexities),  # Commented out to maintain consistency with original code
-        #'sentence_min': np.min(sentence_perplexities),  # Commented out to reduce computation time
-        #'sentence_max': np.max(sentence_perplexities),  # Commented out for efficiency
-        #'sentence_10th': np.percentile(sentence_perplexities, 10),  # Commented out for speed improvement
-        #'sentence_90th': np.percentile(sentence_perplexities, 90),  # Commented out for performance optimization
         'word_mean': np.mean(word_perplexities),
-        #'word_std': np.std(word_perplexities),  # Commented out for the same reasons as sentence stats
-        #'word_min': np.min(word_perplexities),
-        #'word_max': np.max(word_perplexities),
-        #'word_10th': np.percentile(word_perplexities, 10),
-        #'word_90th': np.percentile(word_perplexities, 90)
     }
 
-def process_folder(folder_path):
-    results = []
-    files = [f for f in os.listdir(folder_path) if f.endswith(".txt")]
+def process_folder_in_batches(folder_path, output_csv, batch_size=10):
+    files = [os.path.join(folder_path, f) for f in os.listdir(folder_path) if f.endswith(".txt")]
+    total_files = len(files)
     
-    for i in range(0, len(files), batch_size):
+    for i in range(0, total_files, batch_size):
         batch_files = files[i:i + batch_size]
-        for filename in batch_files:
-            filepath = os.path.join(folder_path, filename)
-            results.append(process_file(filepath))
-    
-    return results
-
-def save_results_to_csv(results, output_csv):
-    df = pd.DataFrame(results)
-    df.to_csv(output_csv, index=False)
+        batch_results = [process_file(filepath) for filepath in batch_files]
+        
+        df = pd.DataFrame(batch_results)
+        if not os.path.exists(output_csv):
+            df.to_csv(output_csv, index=False)
+        else:
+            df.to_csv(output_csv, mode='a', header=False, index=False)
+        
+        print(f"Processed {min(i + batch_size, total_files)} of {total_files} files...")
 
 # Define folder path and output CSV filename
-folder_path = "transcripts_for_students_small/no_questions"
+folder_path = "transcripts_for_students/no_questions"
 output_csv = f"results/output_perplexities_0103_BIG_{model_name}_{window_size}.csv"
 
-# Process the folder and save results to CSV
-results = process_folder(folder_path)
-save_results_to_csv(results, output_csv)
+# Process the folder in batches and save results to CSV
+process_folder_in_batches(folder_path, output_csv, batch_size=batch_size)
