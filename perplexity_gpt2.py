@@ -10,7 +10,7 @@ Usage:
 Options:
     -h --help                              Show this screen.
     -v --version                           Show version.
-    -t --method <method>                   Method to use for calculating perplexity: 'sentence' or 'word' [default: word].
+    -m --method <method>                   Method to use for calculating perplexity: 'sentence' or 'word' [default: word].
     -f --folder <folder>                   Folder path containing text files to process [default: transcripts_patients]
 """
 
