@@ -1,24 +1,47 @@
-#2025-03-26
+"""
+This script calculates the perplexity of text files using a pre-trained language model for a context given a certain window size.
+This context consist of words or sentences depending on the method used. 
+The perplexity is calculated for each context and the results are saved to a CSV file in the 'results' folder.
+Read README.md for more information. 
+# TO DO: WRITE A READ ME. 
+
+Usage:
+    perp.py [options]
+    perp.py (-h | --help)
+
+Options:
+    -h --help                               Show this screen.
+    -v, --version                           Show version.
+    -m, --model <model>                     Pre-trained model to use [default: gpt2].
+    -w, --window-size <int>                 Context size used to calculate perplexity [default: 10].
+    # -b, --batch-size <int>                  Process files in batches of this size [default: 10].
+    -t, --method <method>                   Method to use for calculating perplexity: 'sentence' or 'word' [default: word].
+    -f, --folder <folder>                   Folder path containing text files to process [default: 1st_trans_small]
+"""
+
 import os
 import unicodedata
 import numpy as np
 import pandas as pd
 import torch
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
-# THIS IS FOR SENTENCES!!
+from docopt import docopt
+
+args = docopt(__doc__, version = '1.0 - 2025-03-27')
+model_name = args['--model']
+window_size = int(args['--window-size'])
+# batch_size = int(args['--batch-size'])
+batch_size = 10
+method = args['--method']
+folder_path = args['--folder']
 
 torch.set_num_threads(os.cpu_count())  # Use all available CPU cores
 
-# these should be inputs or arguments imo
-# Define the window size for word-level perplexity
-window_size = 10
-batch_size = 10  # Process files in batches of 10 (adjust as needed)
-method = 'word'
-
 # Load pre-trained model and tokenizer
-model_name = 'gpt2'
-tokenizer = GPT2Tokenizer.from_pretrained(model_name)
-model = GPT2LMHeadModel.from_pretrained(model_name)
+if model_name == 'gpt2':
+    tokenizer = GPT2Tokenizer.from_pretrained(model_name)
+    model = GPT2LMHeadModel.from_pretrained(model_name)
+    print("Using GPT2 model")
 
 def calculate_perplexity(text, model, tokenizer):
     tokenize_input = tokenizer.tokenize(text)
@@ -28,60 +51,44 @@ def calculate_perplexity(text, model, tokenizer):
     loss, _ = outputs[:2]
     return torch.exp(loss).item()
 
+
 def process_file(filepath):
-    try: # DEBUG LINE
-        print(f"Processing file: {filepath}") # DEBUG LINE
-        with open(filepath, 'r', encoding='utf-8') as file:
-            lines = file.readlines()
-        base_filename = os.path.basename(filepath)
-        short_filename = '_'.join(base_filename.split('_')[:3])
-
-        sentences = [unicodedata.normalize('NFKC', line.strip()) for line in lines if line.strip()]
+    with open(filepath, 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+    base_filename = os.path.basename(filepath)
+    short_filename = '_'.join(base_filename.split('_')[:3])
+    sentences = [unicodedata.normalize('NFKC', line.strip()) for line in lines if line.strip()]
+    perplexities = []
         
-        if method == 'sentence':
-            sentence_perplexities = []
-            for i in range(window_size - 1, len(sentences)):
-                start_index = i - (window_size - 1)
-                context = ' '.join(sentences[start_index:i+1])
-                sentence_perplexities.append(calculate_perplexity(context, model, tokenizer))
-                sentence_perplexities = [p for p in sentence_perplexities if not np.isnan(p)] 
-            results = {
-            'filename': short_filename,
-            'sentence_mean': np.mean(sentence_perplexities),
-            'sentence_std': np.std(sentence_perplexities),
-            'sentence_min': np.min(sentence_perplexities),
-            'sentence_max': np.max(sentence_perplexities),
-            'sentence_10th': np.percentile(sentence_perplexities, 10),
-            'sentence_90th': np.percentile(sentence_perplexities, 90)
-            }
+    if method == 'sentence':
+        for i in range(window_size - 1, len(sentences)):
+            start_index = i - (window_size - 1)
+            context = ' '.join(sentences[start_index:i+1])
+            perplexities.append(calculate_perplexity(context, model, tokenizer))
+            print(f"Perplexity for context: {context[:50]}... is {perplexities[-1]}")
 
-        if method == 'word':
-            words = ' '.join(sentences).split()
-            word_perplexities = []
-
-            for i in range(window_size - 1, len(words)):
-                start_index = i - (window_size - 1)
-                context = ' '.join(words[start_index:i+1])
-                word_perplexities.append(calculate_perplexity(context, model, tokenizer))
-            results = {
-            'filename': short_filename,
-            'word_mean': np.mean(word_perplexities),
-            'word_std': np.std(word_perplexities),
-            'word_min': np.min(word_perplexities),
-            'word_max': np.max(word_perplexities),
-            'word_10th': np.percentile(word_perplexities, 10),
-            'word_90th': np.percentile(word_perplexities, 90)
-            }
-
-        return results
+    elif method == 'word':
+        words = ' '.join(sentences).split()
+        for i in range(window_size - 1, len(words)):
+            start_index = i - (window_size - 1)
+            context = ' '.join(words[start_index:i+1])
+            perplexities.append(calculate_perplexity(context, model, tokenizer))
+            print(f"Perplexity for context: {context[:50]}... is {perplexities[-1]}")
         
-    except Exception as e:
-        print(f"Error processing {filepath}: {e}")
-        return {
-            'filename': short_filename,
-            'word_mean': None
+    perplexities = [p for p in perplexities if not np.isnan(p)]
+
+    results = {
+        'filename': short_filename,
+        'word_mean': np.mean(perplexities),
+        'word_std': np.std(perplexities),
+        'word_min': np.min(perplexities),
+        'word_max': np.max(perplexities),
+        'word_10th': np.percentile(perplexities, 10),
+        'word_90th': np.percentile(perplexities, 90)
         }
 
+    return results
+        
 
 def process_folder(folder_path, output_csv, batch_size=10):
     files = [os.path.join(folder_path, f) for f in os.listdir(folder_path) if f.endswith(".txt")]
@@ -99,9 +106,9 @@ def process_folder(folder_path, output_csv, batch_size=10):
         
         print(f"Processed {min(i + batch_size, total_files)} of {total_files} files...")
 
-# Define folder path and output CSV filename
-folder_path = "problematicfiles"
-output_csv = f"results/output_perp_0326_{method}_{model_name}_{window_size}.csv"
+
+# Define output CSV filename
+output_csv = f"results/output_perp_0327_{model_name}_{method}_{window_size}.csv"
 
 # Process the folder in batches and save results to CSV
 process_folder(folder_path, output_csv, batch_size=batch_size)
