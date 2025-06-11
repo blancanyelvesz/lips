@@ -1,11 +1,11 @@
-#2025-03-25
+#2025-03-26
 import os
+import unicodedata
 import numpy as np
 import pandas as pd
 import torch
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
-
-# THIS IS FOR WORDS!!!!
+# THIS IS FOR SENTENCES!!
 
 torch.set_num_threads(os.cpu_count())  # Use all available CPU cores
 
@@ -29,14 +29,32 @@ def calculate_perplexity(text, model, tokenizer):
     return torch.exp(loss).item()
 
 def process_file(filepath):
-    try: 
+    try: # DEBUG LINE
+        print(f"Processing file: {filepath}") # DEBUG LINE
         with open(filepath, 'r', encoding='utf-8') as file:
             lines = file.readlines()
         base_filename = os.path.basename(filepath)
         short_filename = '_'.join(base_filename.split('_')[:3])
 
-        sentences = [line.strip() for line in lines if line.strip()]
+        sentences = [unicodedata.normalize('NFKC', line.strip()) for line in lines if line.strip()]
         
+        if method == 'sentence':
+            sentence_perplexities = []
+            for i in range(window_size - 1, len(sentences)):
+                start_index = i - (window_size - 1)
+                context = ' '.join(sentences[start_index:i+1])
+                sentence_perplexities.append(calculate_perplexity(context, model, tokenizer))
+                sentence_perplexities = [p for p in sentence_perplexities if not np.isnan(p)] 
+            results = {
+            'filename': short_filename,
+            'sentence_mean': np.mean(sentence_perplexities),
+            'sentence_std': np.std(sentence_perplexities),
+            'sentence_min': np.min(sentence_perplexities),
+            'sentence_max': np.max(sentence_perplexities),
+            'sentence_10th': np.percentile(sentence_perplexities, 10),
+            'sentence_90th': np.percentile(sentence_perplexities, 90)
+            }
+
         if method == 'word':
             words = ' '.join(sentences).split()
             word_perplexities = []
@@ -63,7 +81,7 @@ def process_file(filepath):
             'filename': short_filename,
             'word_mean': None
         }
-    
+
 
 def process_folder(folder_path, output_csv, batch_size=10):
     files = [os.path.join(folder_path, f) for f in os.listdir(folder_path) if f.endswith(".txt")]
@@ -82,8 +100,8 @@ def process_folder(folder_path, output_csv, batch_size=10):
         print(f"Processed {min(i + batch_size, total_files)} of {total_files} files...")
 
 # Define folder path and output CSV filename
-folder_path = "1st_trans_small"
-output_csv = f"results/output_perp_0325small_{method}_{model_name}_{window_size}.csv"
+folder_path = "problematicfiles"
+output_csv = f"results/output_perp_0326_{method}_{model_name}_{window_size}.csv"
 
 # Process the folder in batches and save results to CSV
 process_folder(folder_path, output_csv, batch_size=batch_size)
