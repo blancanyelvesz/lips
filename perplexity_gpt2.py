@@ -3,7 +3,8 @@ This script calculates the perplexity of text files using a pre-trained language
 This context consist of words or sentences depending on the method used. 
 The perplexity is calculated for each context and the results are saved to a CSV file in the 'results' folder.
 Read README.md for more information. 
-# TO DO: WRITE A READ ME. I AM LYING HERE. 
+This comes from 0327 not from 0401!
+# TO DO: WRITE A READ ME. 
 
 Usage:
     perp.py [options]
@@ -11,12 +12,9 @@ Usage:
 
 Options:
     -h --help                               Show this screen.
-    -v, --version                           Show version.
-    -m, --model <model>                     Pre-trained model to use [default: gpt2].
-    -w, --window-size <int>                 Context size used to calculate perplexity [default: 10].
-    -b, --batch-size <int>                  Process files in batches of this size [default: 10].
-    -t, --method <method>                   Method to use for calculating perplexity: 'sentence' or 'word' [default: word].
-    -f, --folder <folder>                   Folder path containing text files to process [default: 1st_trans_small]
+    -v --version                           Show version.
+    -t --method <method>                   Method to use for calculating perplexity: 'sentence' or 'word' [default: word].
+    -f --folder <folder>                   Folder path containing text files to process [default: 1st_trans_smallest]
 """
 
 import os
@@ -24,35 +22,31 @@ import unicodedata
 import numpy as np
 import pandas as pd
 import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import GPT2Tokenizer, GPT2LMHeadModel
 from docopt import docopt
 
-args = docopt(__doc__, version = '1.0 - 2025-04-01')
-model_name = args['--model']
-window_size = int(args['--window-size'])
-batch_size = int(args['--batch-size'])
+args = docopt(__doc__, version = '1.0 - 2025-04-02')
 method = args['--method']
 folder_path = args['--folder']
+batch_size = 10
 
-torch.set_num_threads(os.cpu_count())  # Use all available CPU cores
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+print(f"Using device: {device}")
+if device.type == "cpu":
+    torch.set_num_threads(os.cpu_count())
 
-# Load pre-trained model and tokenizer
-if model_name == 'llama':
-    model_name = 'meta-llama/Llama-2-7b-chat-hf'
+model_name = 'gpt2'
+tokenizer = GPT2Tokenizer.from_pretrained(model_name)
+model = GPT2LMHeadModel.from_pretrained(model_name)
 
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name)
 
 def calculate_perplexity(text, model, tokenizer):
-    # Tokenize the input text
-    tokenize_input = tokenizer(text, return_tensors="pt", truncation=True)
-    tensor_input = tokenize_input["input_ids"]
-    
-    # Calculate perplexity
+    tokenize_input = tokenizer.tokenize(text)
+    tensor_input = torch.tensor([tokenizer.convert_tokens_to_ids(tokenize_input)])
     with torch.no_grad():
-        outputs = model(input_ids=tensor_input, labels=tensor_input)
-    loss = outputs.loss  # Cross-entropy loss
-    return torch.exp(loss).item()  # Perplexity is exp(loss)
+        outputs = model(tensor_input, labels=tensor_input)
+    loss, _ = outputs[:2]
+    return torch.exp(loss).item()
 
 
 def process_file(filepath):
@@ -68,15 +62,15 @@ def process_file(filepath):
             start_index = i - (window_size - 1)
             context = ' '.join(sentences[start_index:i+1])
             perplexities.append(calculate_perplexity(context, model, tokenizer))
-            print(f"Processed context: {context}")  # DEBUG LINE
-            print(f"Perplexity: {perplexities[-1]}")  # DEBUG LINE
+            print(f"Perplexity for context: {context[:50]}... is {perplexities[-1]}")
 
-    if method == 'word':
+    elif method == 'word':
         words = ' '.join(sentences).split()
         for i in range(window_size - 1, len(words)):
             start_index = i - (window_size - 1)
             context = ' '.join(words[start_index:i+1])
             perplexities.append(calculate_perplexity(context, model, tokenizer))
+            print(f"Perplexity for context: {context[:50]}... is {perplexities[-1]}")
         
     perplexities = [p for p in perplexities if not np.isnan(p)]
 
@@ -110,8 +104,8 @@ def process_folder(folder_path, output_csv, batch_size=10):
         print(f"Processed {min(i + batch_size, total_files)} of {total_files} files...")
 
 
-# Define output CSV filename
-output_csv = f"results/output_perp_0327_{model_name}_{method}_{window_size}.csv"
-
-# Process the folder in batches and save results to CSV
-process_folder(folder_path, output_csv, batch_size=batch_size)
+for n in range(10, 51, 10):
+    window_size = n
+    output_csv = f"results/output_perp_0402_{model_name}_{method}_{window_size}.csv"
+    print(f"Using window size: {window_size}")
+    process_folder(folder_path, output_csv, batch_size=batch_size)
