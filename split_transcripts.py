@@ -1,8 +1,8 @@
 import os
 
 filename = 'all_transcripts_v2.txt'
-controls_file = 'controls_ids.txt'
-patients_file = 'patients_ids.txt'
+controls_file = 'redcap_controls.txt'
+patients_file = 'redcap_patients.txt'
 controls_dir = 'transcripts_controls'
 patients_dir = 'transcripts_patients'
 
@@ -52,10 +52,15 @@ with open(filename, 'r', encoding='utf-8') as file:
             current_lines.append(line)
 
     save_transcript(subject_id, recording, current_lines)
-        
-    print(f'Processed {len(set(subject_list))} subjects in total')
-    print(f'and saved {len(saved_controls)+len(saved_patients)} transcripts for 1st recordings')
-    print(f'of which {len(saved_controls)} were controls and {len(saved_patients)} were patients')
 
-    print(f'{len(set(not_relevant))} transcripts were not relevant for this study')
-    print(f'and {len(set(subject_list))-(len(saved_controls)+len(saved_patients))} subjects did not have a 1st recording')
+with open('saved_controls.txt', 'w', encoding='utf-8') as file:
+    file.writelines(f"{subj}\n" for subj in sorted(set(saved_controls)))
+
+with open('saved_patients.txt', 'w', encoding='utf-8') as file:
+    file.writelines(f"{subj}\n" for subj in sorted(set(saved_patients)))
+        
+print(f"Total unique subjects: {len(set(subject_list))}")
+print(f"Saved 1st recordings: {len(saved_controls) + len(saved_patients)} "
+      f"(controls: {len(saved_controls)}, patients: {len(saved_patients)})")
+print(f"Not relevant for the study: {len(set(not_relevant))}")
+print(f"Subjects without 1st recording: {len(set(subject_list)) - (len(saved_controls) + len(saved_patients))}")
