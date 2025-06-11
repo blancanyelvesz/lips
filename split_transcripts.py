@@ -63,4 +63,4 @@ print(f"Total unique subjects: {len(set(subject_list))}")
 print(f"Saved 1st recordings: {len(saved_controls) + len(saved_patients)} "
       f"(controls: {len(saved_controls)}, patients: {len(saved_patients)})")
 print(f"Not relevant for the study: {len(set(not_relevant))}")
-print(f"Subjects without 1st recording: {len(set(subject_list)) - (len(saved_controls) + len(saved_patients))}")
+print(f"Subjects without 1st recording: {len(set(subject_list)) - (len(saved_controls) + len(saved_patients)) - len(set(not_relevant))}")
