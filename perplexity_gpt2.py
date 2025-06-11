@@ -1,20 +1,17 @@
 """
-This script calculates the perplexity of text files using a pre-trained language model for a context given a certain window size.
-This context consist of words or sentences depending on the method used. 
+This script calculates the perplexity of text files using the pre-trained language model GPT2 available in huggingface 🤗 for contexts of sizes 10, 20, 30, 40, and 50.
+This context consist of words or sentences depending on the --method used. 
 The perplexity is calculated for each context and the results are saved to a CSV file in the 'results' folder.
-Read README.md for more information. 
-This comes from 0327 not from 0401!
-# TO DO: WRITE A READ ME. 
 
 Usage:
     perp.py [options]
     perp.py (-h | --help)
 
 Options:
-    -h --help                               Show this screen.
+    -h --help                              Show this screen.
     -v --version                           Show version.
     -t --method <method>                   Method to use for calculating perplexity: 'sentence' or 'word' [default: word].
-    -f --folder <folder>                   Folder path containing text files to process [default: 1st_trans_smallest]
+    -f --folder <folder>                   Folder path containing text files to process [default: patients_transcripts]
 """
 
 import os
@@ -25,7 +22,7 @@ import torch
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
 from docopt import docopt
 
-args = docopt(__doc__, version = '1.0 - 2025-04-02')
+args = docopt(__doc__, version = '1.0 - GPT2')
 method = args['--method']
 folder_path = args['--folder']
 batch_size = 10
@@ -106,6 +103,6 @@ def process_folder(folder_path, output_csv, batch_size=10):
 
 for n in range(10, 51, 10):
     window_size = n
-    output_csv = f"results/output_perp_0402_{model_name}_{method}_{window_size}.csv"
+    output_csv = f"results/output_perp_{model_name}_{method}_{window_size}.csv"
     print(f"Using window size: {window_size}")
     process_folder(folder_path, output_csv, batch_size=batch_size)
