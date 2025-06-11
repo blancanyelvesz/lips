@@ -3,7 +3,7 @@ This script calculates the perplexity of text files using a pre-trained language
 This context consist of words or sentences depending on the method used. 
 The perplexity is calculated for each context and the results are saved to a CSV file in the 'results' folder.
 Read README.md for more information. 
-# TO DO: WRITE A READ ME. 
+# TO DO: WRITE A READ ME. I AM LYING HERE. 
 
 Usage:
     perp.py [options]
@@ -14,7 +14,7 @@ Options:
     -v, --version                           Show version.
     -m, --model <model>                     Pre-trained model to use [default: gpt2].
     -w, --window-size <int>                 Context size used to calculate perplexity [default: 10].
-    # -b, --batch-size <int>                  Process files in batches of this size [default: 10].
+    -b, --batch-size <int>                  Process files in batches of this size [default: 10].
     -t, --method <method>                   Method to use for calculating perplexity: 'sentence' or 'word' [default: word].
     -f, --folder <folder>                   Folder path containing text files to process [default: 1st_trans_small]
 """
@@ -24,32 +24,35 @@ import unicodedata
 import numpy as np
 import pandas as pd
 import torch
-from transformers import GPT2Tokenizer, GPT2LMHeadModel
+from transformers import AutoTokenizer, AutoModelForCausalLM
 from docopt import docopt
 
-args = docopt(__doc__, version = '1.0 - 2025-03-27')
+args = docopt(__doc__, version = '1.0 - 2025-04-01')
 model_name = args['--model']
 window_size = int(args['--window-size'])
-# batch_size = int(args['--batch-size'])
-batch_size = 10
+batch_size = int(args['--batch-size'])
 method = args['--method']
 folder_path = args['--folder']
 
 torch.set_num_threads(os.cpu_count())  # Use all available CPU cores
 
 # Load pre-trained model and tokenizer
-if model_name == 'gpt2':
-    tokenizer = GPT2Tokenizer.from_pretrained(model_name)
-    model = GPT2LMHeadModel.from_pretrained(model_name)
-    print("Using GPT2 model")
+if model_name == 'llama':
+    model_name = 'meta-llama/Llama-2-7b-chat-hf'
+
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
 
 def calculate_perplexity(text, model, tokenizer):
-    tokenize_input = tokenizer.tokenize(text)
-    tensor_input = torch.tensor([tokenizer.convert_tokens_to_ids(tokenize_input)])
+    # Tokenize the input text
+    tokenize_input = tokenizer(text, return_tensors="pt", truncation=True)
+    tensor_input = tokenize_input["input_ids"]
+    
+    # Calculate perplexity
     with torch.no_grad():
-        outputs = model(tensor_input, labels=tensor_input)
-    loss, _ = outputs[:2]
-    return torch.exp(loss).item()
+        outputs = model(input_ids=tensor_input, labels=tensor_input)
+    loss = outputs.loss  # Cross-entropy loss
+    return torch.exp(loss).item()  # Perplexity is exp(loss)
 
 
 def process_file(filepath):
@@ -65,15 +68,15 @@ def process_file(filepath):
             start_index = i - (window_size - 1)
             context = ' '.join(sentences[start_index:i+1])
             perplexities.append(calculate_perplexity(context, model, tokenizer))
-            print(f"Perplexity for context: {context[:50]}... is {perplexities[-1]}")
+            print(f"Processed context: {context}")  # DEBUG LINE
+            print(f"Perplexity: {perplexities[-1]}")  # DEBUG LINE
 
-    elif method == 'word':
+    if method == 'word':
         words = ' '.join(sentences).split()
         for i in range(window_size - 1, len(words)):
             start_index = i - (window_size - 1)
             context = ' '.join(words[start_index:i+1])
             perplexities.append(calculate_perplexity(context, model, tokenizer))
-            print(f"Perplexity for context: {context[:50]}... is {perplexities[-1]}")
         
     perplexities = [p for p in perplexities if not np.isnan(p)]
 
