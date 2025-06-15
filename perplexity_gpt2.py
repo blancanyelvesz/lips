@@ -11,7 +11,7 @@ Options:
     -h --help                              Show this screen.
     -v --version                           Show version.
     -m --method <method>                   Method to use for calculating perplexity: 'sentence' or 'word' [default: word].
-    -f --folder <folder>                   Folder path containing text files to process [default: transcripts_patients]
+    -f --folder <folder>                   Folder path containing text files to process [default: small_controls]
 """
 
 import os
@@ -103,6 +103,6 @@ def process_folder(folder_path, output_csv, batch_size=10):
 
 for n in range(10, 51, 10):
     window_size = n
-    output_csv = f"results/output_perp_{model_name}_{method}_{window_size}.csv"
+    output_csv = f"results/output_perp_{model_name}_{method}_{folder_path}_{window_size}.csv"
     print(f"Using window size: {window_size}")
     process_folder(folder_path, output_csv, batch_size=batch_size)
