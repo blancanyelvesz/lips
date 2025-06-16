@@ -23,92 +23,150 @@ import unicodedata
 import numpy as np
 import pandas as pd
 import torch
-from transformers import LlamaTokenizer, AutoModelForCausalLM 
-from huggingface_hub import login
+from transformers import LlamaTokenizer, LlamaForCausalLM
 from docopt import docopt
 
-args = docopt(__doc__, version = '1.0 - LLaMA')
+# Parse command line arguments
+args = docopt(__doc__, version='1.0 - OpenLLaMA')
 method = args['--method']
 folder_path = args['--folder']
 batch_size = 10
 
+# Set up device
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 if device.type == "cpu":
     torch.set_num_threads(os.cpu_count())
 
-# os.environ["TRANSFORMERS_CACHE"] = "/tmp/huggingface_cache"
+# Model name - using the OpenLLaMA model as you wanted
 model_name = 'openlm-research/open_llama_3b'
-# os.environ["HUGGINGFACE_HUB_TOKEN"] = "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"
-# token = "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"
-# try:
-#     login(token=token)
-#     print("Token is valid and logged in!")
-# except Exception as e:
-#     print(f"Error: {e}")
+print(f"Using model: {model_name}")
 
-# tokenizer = AutoTokenizer.from_pretrained(model_name, use_auth_token=True)
-# model = AutoModelForCausalLM.from_pretrained(model_name, use_auth_token=True).to(device)
+# Ensure the results directory exists
+os.makedirs("results", exist_ok=True)
 
+# Load tokenizer and model
+print("Loading tokenizer and model...")
 try:
-    tokenizer = LlamaTokenizer.from_pretrained(model_name, use_fast=False, legacy=True)
+    # Load tokenizer with SentencePiece
+    tokenizer = LlamaTokenizer.from_pretrained(model_name, use_fast=False)
     print("Tokenizer loaded successfully!")
-    model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
+    
+    # Load model with sharded weights - the key fix!
+    model = LlamaForCausalLM.from_pretrained(
+        model_name,
+        torch_dtype=torch.float32,  # Use float32 for CPU compatibility
+        device_map=None,  # Let the model load on the default device
+        offload_folder="offload"  # Temporary folder for offloading
+    )
+    model = model.to(device)
     print("Model loaded successfully!")
 except Exception as e:
-    print(f"Error: {e}")
-
+    print(f"Error loading tokenizer or model: {e}")
+    exit(1)  # Exit if loading fails
 
 def calculate_perplexity(text, model, tokenizer):
+    """Calculate perplexity of a text using the given model and tokenizer."""
     if not text.strip():
         return float('nan')  # Return NaN for empty inputs
-    inputs = tokenizer(text, return_tensors="pt").to(device)
-    with torch.no_grad():
-        outputs = model(**inputs, labels=inputs.input_ids)
-    return torch.exp(outputs.loss).item()
-
+    
+    try:
+        # Use the modern API for tokenizer
+        inputs = tokenizer(text, return_tensors="pt").to(device)
+        
+        # Handle input sequences that might be too long
+        if inputs.input_ids.size(1) > tokenizer.model_max_length:
+            inputs.input_ids = inputs.input_ids[:, :tokenizer.model_max_length]
+            if 'attention_mask' in inputs:
+                inputs.attention_mask = inputs.attention_mask[:, :tokenizer.model_max_length]
+        
+        with torch.no_grad():
+            outputs = model(**inputs, labels=inputs.input_ids)
+        
+        return torch.exp(outputs.loss).item()
+    except Exception as e:
+        print(f"Error calculating perplexity: {e}")
+        return float('nan')
 
 def process_file(filepath):
-    with open(filepath, 'r', encoding='utf-8') as file:
-        lines = file.readlines()
-    base_filename = os.path.basename(filepath)
-    short_filename = '_'.join(base_filename.split('_')[:3])
-    sentences = [unicodedata.normalize('NFKC', line.strip()) for line in lines if line.strip()]
-    perplexities = []
+    """Process a single file and calculate perplexity metrics."""
+    try:
+        with open(filepath, 'r', encoding='utf-8', errors='replace') as file:
+            lines = file.readlines()
         
-    if method == 'sentence':
-        for i in range(window_size - 1, len(sentences)):
-            start_index = i - (window_size - 1)
-            context = ' '.join(sentences[start_index:i+1])
-            perplexities.append(calculate_perplexity(context, model, tokenizer))
-            print(f"Perplexity for context: {context[:50]}... is {perplexities[-1]}")
+        base_filename = os.path.basename(filepath)
+        short_filename = '_'.join(base_filename.split('_')[:3])
+        sentences = [unicodedata.normalize('NFKC', line.strip()) for line in lines if line.strip()]
+        perplexities = []
+            
+        if method == 'sentence':
+            for i in range(window_size - 1, len(sentences)):
+                start_index = i - (window_size - 1)
+                context = ' '.join(sentences[start_index:i+1])
+                perp = calculate_perplexity(context, model, tokenizer)
+                if not np.isnan(perp):
+                    perplexities.append(perp)
+                    print(f"Perplexity for context: {context[:50]}... is {perp}")
 
-    elif method == 'word':
-        words = ' '.join(sentences).split()
-        for i in range(window_size - 1, len(words)):
-            start_index = i - (window_size - 1)
-            context = ' '.join(words[start_index:i+1])
-            perplexities.append(calculate_perplexity(context, model, tokenizer))
-            print(f"Perplexity for context: {context[:50]}... is {perplexities[-1]}")
-        
-    perplexities = [p for p in perplexities if not np.isnan(p)]
+        elif method == 'word':
+            words = ' '.join(sentences).split()
+            for i in range(window_size - 1, len(words)):
+                start_index = i - (window_size - 1)
+                context = ' '.join(words[start_index:i+1])
+                perp = calculate_perplexity(context, model, tokenizer)
+                if not np.isnan(perp):
+                    perplexities.append(perp)
+                    print(f"Perplexity for context: {context[:50]}... is {perp}")
+            
+        if not perplexities:
+            print(f"Warning: No valid perplexities calculated for {filepath}")
+            return {
+                'filename': short_filename,
+                'word_mean': float('nan'),
+                'word_std': float('nan'),
+                'word_min': float('nan'),
+                'word_max': float('nan'),
+                'word_10th': float('nan'),
+                'word_90th': float('nan')
+            }
 
-    results = {
-        'filename': short_filename,
-        'word_mean': np.mean(perplexities),
-        'word_std': np.std(perplexities),
-        'word_min': np.min(perplexities),
-        'word_max': np.max(perplexities),
-        'word_10th': np.percentile(perplexities, 10),
-        'word_90th': np.percentile(perplexities, 90)
+        results = {
+            'filename': short_filename,
+            'word_mean': np.mean(perplexities),
+            'word_std': np.std(perplexities),
+            'word_min': np.min(perplexities),
+            'word_max': np.max(perplexities),
+            'word_10th': np.percentile(perplexities, 10),
+            'word_90th': np.percentile(perplexities, 90)
         }
 
-    return results
+        return results
+    except Exception as e:
+        print(f"Error processing file {filepath}: {e}")
+        return {
+            'filename': os.path.basename(filepath),
+            'word_mean': float('nan'),
+            'word_std': float('nan'),
+            'word_min': float('nan'),
+            'word_max': float('nan'),
+            'word_10th': float('nan'),
+            'word_90th': float('nan')
+        }
         
-
 def process_folder(folder_path, output_csv, batch_size=10):
+    """Process all text files in a folder and save results to CSV."""
+    if not os.path.exists(folder_path):
+        print(f"Error: Folder {folder_path} not found")
+        return
+        
     files = [os.path.join(folder_path, f) for f in os.listdir(folder_path) if f.endswith(".txt")]
     total_files = len(files)
+    
+    if total_files == 0:
+        print(f"No text files found in {folder_path}")
+        return
+        
+    print(f"Found {total_files} files to process")
     
     for i in range(0, total_files, batch_size):
         batch_files = files[i:i + batch_size]
@@ -122,9 +180,16 @@ def process_folder(folder_path, output_csv, batch_size=10):
         
         print(f"Processed {min(i + batch_size, total_files)} of {total_files} files...")
 
+# Main execution
+window_size = 10  # Just one iteration with window_size=10
+# Use the model's simple name for the output file
+model_simple_name = model_name.split('/')[-1]
+output_csv = f"results/output_perp_{model_simple_name}_{method}_{window_size}.csv"
+print(f"Using window size: {window_size}")
 
-for n in range(10, 11, 10): # changed to 11 so there is only one iteration
-    window_size = n
-    output_csv = f"results/output_perp_0409_{model_name}_{method}_{window_size}.csv"
-    print(f"Using window size: {window_size}")
-    process_folder(folder_path, output_csv, batch_size=batch_size)
+# Create the results directory if it doesn't exist
+os.makedirs(os.path.dirname(output_csv), exist_ok=True)
+
+process_folder(folder_path, output_csv, batch_size=batch_size)
+
+print("Processing complete!")
