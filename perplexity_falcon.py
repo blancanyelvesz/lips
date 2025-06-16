@@ -109,3 +109,4 @@ for n in range(10, 51, 10):
     output_csv = f"results/output_perp_{model_name}_{method}_{folder_path}_{window_size}.csv"
     print(f"Using window size: {window_size}")
     process_folder(folder_path, output_csv, batch_size=batch_size)
+    
