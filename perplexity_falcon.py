@@ -62,7 +62,7 @@ def process_file(filepath):
             start_index = i - (window_size - 1)
             context = ' '.join(sentences[start_index:i+1])
             perplexities.append(calculate_perplexity(context, model, tokenizer))
-            print(f"Perplexity for context: {context[:50]}... is {perplexities[-1]}")
+            #print(f"Perplexity for context: {context[:50]}... is {perplexities[-1]}")
 
     elif method == 'word':
         words = ' '.join(sentences).split()
@@ -70,7 +70,7 @@ def process_file(filepath):
             start_index = i - (window_size - 1)
             context = ' '.join(words[start_index:i+1])
             perplexities.append(calculate_perplexity(context, model, tokenizer))
-            print(f"Perplexity for context: {context[:50]}... is {perplexities[-1]}")
+            #print(f"Perplexity for context: {context[:50]}... is {perplexities[-1]}")
 
     perplexities = [p for p in perplexities if not np.isnan(p)]
 
