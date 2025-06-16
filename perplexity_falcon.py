@@ -22,7 +22,7 @@ import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from docopt import docopt
 
-args = docopt(__doc__, version = '1.0 - GPT2')
+args = docopt(__doc__, version = '1.2 - Falcon-7b')
 method = args['--method']
 folder_path = args['--folder']
 batch_size = 10
@@ -104,7 +104,7 @@ def process_folder(folder_path, output_csv, batch_size=10):
         print(f"Processed {min(i + batch_size, total_files)} of {total_files} files...")
 
 
-for n in range(10, 21, 10):
+for n in range(10, 51, 10):
     window_size = n
     output_csv = f"results/output_perp_{model_name}_{method}_{folder_path}_{window_size}.csv"
     print(f"Using window size: {window_size}")
