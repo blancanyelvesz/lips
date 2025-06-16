@@ -22,7 +22,7 @@ import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from docopt import docopt
 
-args = docopt(__doc__, version = '1.1 - OpenLLaMA')
+args = docopt(__doc__, version = '1.1 - OpenLLaMA-3b')
 method = args['--method']
 folder_path = args['--folder']
 batch_size = 10
