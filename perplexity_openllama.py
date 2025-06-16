@@ -23,7 +23,7 @@ import unicodedata
 import numpy as np
 import pandas as pd
 import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM 
+from transformers import LlamaTokenizer, AutoModelForCausalLM 
 from huggingface_hub import login
 from docopt import docopt
 
@@ -37,30 +37,35 @@ print(f"Using device: {device}")
 if device.type == "cpu":
     torch.set_num_threads(os.cpu_count())
 
-os.environ["TRANSFORMERS_CACHE"] = "/tmp/huggingface_cache"
-model_name = 'meta-llama/Llama-2-7b-hf'
-os.environ["HUGGINGFACE_HUB_TOKEN"] = "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"
-token = "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"
-try:
-    login(token=token)
-    print("Token is valid and logged in!")
-except Exception as e:
-    print(f"Error: {e}")
+# os.environ["TRANSFORMERS_CACHE"] = "/tmp/huggingface_cache"
+model_name = 'openlm-research/open_llama_3b'
+# os.environ["HUGGINGFACE_HUB_TOKEN"] = "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"
+# token = "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"
+# try:
+#     login(token=token)
+#     print("Token is valid and logged in!")
+# except Exception as e:
+#     print(f"Error: {e}")
 
 # tokenizer = AutoTokenizer.from_pretrained(model_name, use_auth_token=True)
 # model = AutoModelForCausalLM.from_pretrained(model_name, use_auth_token=True).to(device)
 
-tokenizer = AutoTokenizer.from_pretrained(model_name, token=token, revision="main")
-model = AutoModelForCausalLM.from_pretrained(model_name, token=token, revision="main").to(device)
+try:
+    tokenizer = LlamaTokenizer.from_pretrained(model_name, use_fast=False, legacy=True)
+    print("Tokenizer loaded successfully!")
+    model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
+    print("Model loaded successfully!")
+except Exception as e:
+    print(f"Error: {e}")
 
 
 def calculate_perplexity(text, model, tokenizer):
-    tokenize_input = tokenizer.tokenize(text)
-    tensor_input = torch.tensor([tokenizer.convert_tokens_to_ids(tokenize_input)])
+    if not text.strip():
+        return float('nan')  # Return NaN for empty inputs
+    inputs = tokenizer(text, return_tensors="pt").to(device)
     with torch.no_grad():
-        outputs = model(tensor_input, labels=tensor_input)
-    loss, _ = outputs[:2]
-    return torch.exp(loss).item()
+        outputs = model(**inputs, labels=inputs.input_ids)
+    return torch.exp(outputs.loss).item()
 
 
 def process_file(filepath):
@@ -120,6 +125,6 @@ def process_folder(folder_path, output_csv, batch_size=10):
 
 for n in range(10, 11, 10): # changed to 11 so there is only one iteration
     window_size = n
-    output_csv = f"results/output_perp_0408_{model_name}_{method}_{window_size}.csv"
+    output_csv = f"results/output_perp_0409_{model_name}_{method}_{window_size}.csv"
     print(f"Using window size: {window_size}")
     process_folder(folder_path, output_csv, batch_size=batch_size)
