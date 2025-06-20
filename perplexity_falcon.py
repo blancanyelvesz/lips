@@ -34,6 +34,7 @@ if device.type == "cpu":
 
 
 model_name = 'tiiuae/falcon-7b'
+safe_model_name = model_name.replace("/", "_")
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name, device_map=device, torch_dtype=torch.float32)
 model = model.to(device)
