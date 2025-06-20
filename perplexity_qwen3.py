@@ -2,8 +2,7 @@
 This script calculates the perplexity of text files using the pre-trained language model Qwen3-0.6B available in huggingface 🤗 for contexts of sizes 10, 20, 30, 40, and 50.
 This context consist of words or sentences depending on the --method used.
 The perplexity is calculated for each context and the results are saved to a CSV file in the 'results' folder.
-Read README.md for more information.
-# TO DO: WRITE A READ ME.
+
 
 Usage:
     perp.py [options]
