@@ -36,8 +36,8 @@ if device.type == "cpu":
 model_name = 'tiiuae/falcon-7b'
 safe_model_name = model_name.replace("/", "_")
 tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name, device_map=device, torch_dtype = torch.float16 if device.type == "cuda" else torch.float32)
-model = model.to(device)
+model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto", torch_dtype = torch.float16 if device.type == "cuda" else torch.float32, low_cpu_mem_usage=True)
+#model = model.to(device)
 
 
 def calculate_perplexity(text, model, tokenizer):
@@ -108,7 +108,7 @@ def process_folder(folder_path, output_csv, batch_size=10):
 os.makedirs("results", exist_ok=True)
 for n in range(10, 51, 10):
     window_size = n
-    output_csv = f"results/output_perp_{model_name}_{method}_{folder_path}_{window_size}.csv"
+    output_csv = f"results/output_perp_{safe_model_name}_{method}_{folder_path}_{window_size}.csv"
     print(f"Using window size: {window_size}")
     process_folder(folder_path, output_csv, batch_size=batch_size)
     
