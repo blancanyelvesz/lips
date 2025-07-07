@@ -36,7 +36,11 @@ if device.type == "cpu":
 model_name = 'openlm-research/open_llama_3b_v2'
 safe_model_name = model_name.split('/')[1]
 tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name, device_map = "auto", torch_dtype = torch.float32)
+model = AutoModelForCausalLM.from_pretrained(
+    model_name, 
+    device_map = "auto", 
+    torch_dtype = torch.float16 if device.type == "cuda" else torch.float32
+    )
 model = model.to(device)
 
 
