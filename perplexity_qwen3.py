@@ -34,6 +34,7 @@ if device.type == "cpu":
     torch.set_num_threads(os.cpu_count())
 
 model_name = 'Qwen/Qwen3-0.6B'
+safe_model_name = model_name.split('/')[1]
 safe_model_name = model_name.replace("/", "_")
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name, device_map=device, torch_dtype=torch.float32)
