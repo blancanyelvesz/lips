@@ -42,7 +42,6 @@ model = AutoModelForCausalLM.from_pretrained(
     torch_dtype = torch.float16 if device.type == "cuda" else torch.float32, 
     low_cpu_mem_usage=True
     )
-
 model = model.to(device)
 
 
