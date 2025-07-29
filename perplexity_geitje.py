@@ -1,9 +1,7 @@
 """
-This script calculates the perplexity of text files using the pre-trained language model GPT2 available in huggingface 🤗 for contexts of sizes 10, 20, 30, 40, and 50.
+This script calculates the perplexity of text files using the pre-trained language model GEITje available in huggingface 🤗 for contexts of sizes 10, 20, 30, 40, and 50.
 This context consist of words or sentences depending on the --method used.
 The perplexity is calculated for each context and the results are saved to a CSV file in the 'results' folder.
-Read README.md for more information.
-# TO DO: WRITE A READ ME.
 
 Usage:
     perp.py [options]
@@ -13,7 +11,7 @@ Options:
     -h --help                              Show this screen.
     -v --version                           Show version.
     -t --method <method>                   Method to use for calculating perplexity: 'sentence' or 'word' [default: word].
-    -f --folder <folder>                   Folder path containing text files to process [default: folder]
+    -f --folder <folder>                   Folder path containing text files to process [default: control].
 """
 
 import os
@@ -21,7 +19,6 @@ import unicodedata
 import numpy as np
 import pandas as pd
 import torch
-from transformers import GPT2Tokenizer, GPT2LMHeadModel
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from docopt import docopt
 
@@ -41,12 +38,10 @@ safe_model_name = model_name.split('/')[1]
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
-    device_map="auto",
-    torch_dtype=torch.float16,
-    low_cpu_mem_usage=True,
-    offload_folder="offload"
+    device_map=device,
+    torch_dtype=torch.float16 if device.type == "cuda" else torch.float32
     )
-#model = model.to(device)
+model = model.to(device)
 
 
 def calculate_perplexity(text, model, tokenizer):
@@ -119,4 +114,4 @@ for n in range(10, 51, 10):
     window_size = n
     output_csv = f"results/output_perp_{model_name}_{method}_{window_size}.csv"
     print(f"Using window size: {window_size}")
-    process_folder("folder", "output", batch_size=batch_size)
+    process_folder(folder_path, output_csv, batch_size=batch_size)
