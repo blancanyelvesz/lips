@@ -1,0 +1,9 @@
+huggingface-hub
+transformers
+numpy
+pandas
+torch
+safetensors
+docopt
+tiktoken
+accelerate
