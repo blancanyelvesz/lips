@@ -6,6 +6,7 @@ silvias_code/
 preprocessing/
 *_controls/
 *_patients/
+data_analysis/
 
 *.ini
 *.log
