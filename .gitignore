@@ -1,0 +1,14 @@
+old/
+other/
+silvias_code/
+*_v1/
+*results/
+preprocessing/
+*_controls/
+*_patients/
+
+*.ini
+*.log
+*.json
+*.csv
+debug*.txt
