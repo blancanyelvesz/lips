@@ -178,3 +178,40 @@ for (m in models) {
   print(p)
 }
 
+
+# define combined file
+combined_filename <- "statdesc_all.txt"
+
+# open sink for combined file
+sink(combined_filename, split = TRUE)
+
+# loop through models, groups, sizes
+for (m in models) {
+  for (g in groups) {
+    # file for individual model-group
+    filename <- paste0("statdesc_", m, "_", g, ".txt")
+    
+    # open sink for individual file
+    sink(filename, split = TRUE)
+    
+    for (s in sizes) {
+      objname <- paste(m, g, s, sep = "_")
+      df <- get(objname)
+      
+      # write header for combined and individual
+      cat("\n====================\n")
+      cat("Model:", m, "Group:", g, "Size:", s, "\n")
+      
+      # compute stat.desc
+      desc <- stat.desc(df$word_mean, norm = TRUE)
+      print(desc)
+    }
+    
+    # close individual file sink
+    sink()
+  }
+}
+
+# close combined file sink
+sink()
+
