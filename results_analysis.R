@@ -5,19 +5,27 @@ library(tidyverse)
 library(ggplot2)
 library(pastecs)
 
-# list variables
+# define models, groups, sizes, metrics
 models <- c("gpt2", "qwen3", "falcon", "geitje")
 groups <- c("control", "psychosis")
 sizes  <- c("10", "20", "30", "40", "50")
+metrics <- c("word_mean", "word_std", "word_min", "word_max")
+
+# define directories
+data_dir <- "perp_data/"
+if (!dir.exists("outputs")) dir.create("outputs")
+output_dir <- "outputs/"
+if (!dir.exists("clean_perp_data")) dir.create("clean_perp_data")
+clean_dir <- "clean_perp_data/"
 
 # load a dataframe per perplexity output csv
 for (m in models) {
   for (g in groups) {
     for (s in sizes) {
-      fname <- paste0("output_perp_", m, "_", g, "_", s, ".csv")
       objname <- paste(m, g, s, sep = "_")
+      filepath <- paste0(data_dir, "output_perp_", objname, ".csv")
       
-      df <- read.csv(fname)
+      df <- read.csv(filepath)
       df$id <- sub("\\.txt$", "", df$filename)
       df$filename <- NULL
       df <- df[, c("id", setdiff(names(df), "id"))]
@@ -43,175 +51,182 @@ for (m in models) {
 }
 
 
-# data frame to store results with high skewness
-high_skew <- data.frame(
-  model = character(),
-  group = character(),
-  size = numeric(),
-  skewness = numeric(),
-  stringsAsFactors = FALSE
-)
+# initialise high skewness dataframe per metric
+high_skew_list <- list()
+for (metric in metrics) {
+  high_skew_list[[metric]] <- data.frame(
+    model = character(),
+    group = character(),
+    size = numeric(),
+    skewness = numeric(),
+    stringsAsFactors = FALSE
+  )
+}
 
-# loop through models, groups, sizes for stat desc
-for (m in models) {
-  for (g in groups) {
-    filename <- paste0("statdesc_", m, "_", g, ".txt")
-    
-    # split sink to print AND save
-    sink(filename, split = TRUE)
-    
-    for (s in sizes) {
-      objname <- paste(m, g, s, sep = "_")
-      df <- get(objname)
+
+# loop through metrics for stat.desc and high skew detection
+for (metric in metrics) {
+  
+  combined_file <- paste0(output_dir, "statdesc_", metric, "_all.txt")
+  sink(combined_file, split = TRUE)
+  
+  for (m in models) {
+    for (g in groups) {
       
-      cat("\nModel:", m, "Group:", g, "Size:", s, "\n")
-      desc <- stat.desc(df$word_mean, norm = TRUE)
-      print(desc)
+      individual_file <- paste0(output_dir, "statdesc_", metric, "_", m, "_", g, ".txt")
+      sink(individual_file, split = TRUE)
       
-      # check skewness
-      skew_val <- as.numeric(desc["skewness"])
-      if (!is.na(skew_val) && abs(skew_val) > 1) {
-        high_skew <- rbind(
-          high_skew,
-          data.frame(model = m, group = g, size = s, skewness = skew_val)
-        )
+      for (s in sizes) {
+        objname <- paste(m, g, s, sep = "_")
+        df <- get(objname)
+        
+        cat("\n====================\n")
+        cat("Metric:", metric, " | Model:", m, " | Group:", g, " | Size:", s, "\n")
+        
+        # compute stat.desc
+        desc <- stat.desc(df[[metric]], norm = TRUE)
+        print(desc)
+        
+        # check skewness
+        skew_val <- as.numeric(desc["skewness"])
+        if (!is.na(skew_val) && abs(skew_val) > 1) {
+          high_skew_list[[metric]] <- rbind(
+            high_skew_list[[metric]],
+            data.frame(model = m, group = g, size = s, skewness = skew_val)
+          )
+        }
+      }
+      
+      sink()  # close individual file
+    }
+  }
+  
+  sink()  # close combined file
+  # save high skew list per metric
+  write.csv(high_skew_list[[metric]], 
+            paste0(output_dir, "high_skew_list_", metric, ".csv"), 
+            row.names = FALSE)
+}
+
+
+# outlier removal per metric
+for (metric in metrics) {
+  
+  sink(paste0(output_dir, "outlier_removal_", metric, "_all.txt"), split = TRUE)
+  
+  for (m in models) {
+    for (g in groups) {
+      for (s in sizes) {
+        objname <- paste(m, g, s, sep = "_")
+        df <- get(objname)
+        
+        mean_val <- mean(df[[metric]], na.rm = TRUE)
+        sd_val   <- sd(df[[metric]], na.rm = TRUE)
+        
+        df_clean <- df[df[[metric]] >= (mean_val - 3*sd_val) &
+                       df[[metric]] <= (mean_val + 3*sd_val), ]
+        
+        skew_clean <- psych::describe(df_clean[[metric]])$skew
+        
+        cat("Metric:", metric, " | Model:", m, " | Group:", g, " | Size:", s,
+            "- Original N:", nrow(df),
+            "Clean N:", nrow(df_clean),
+            "Skewness:", round(skew_clean, 3), "\n")
+        
+        clean_name <- paste(objname, metric, "clean", sep = "_")
+        assign(clean_name, df_clean)
+        
+        write.csv(df_clean, file = paste0(clean_dir, clean_name, ".csv"), row.names = FALSE)
       }
     }
-    
-    sink()
   }
+  
+  sink()
 }
 
-# show the list of high skewness combinations
-print(high_skew)
-write.csv(high_skew, "high_skew_list.csv", row.names = FALSE)
+
+# now repeat skewness and stat desc check after outlier removal
+# initialise high skewness dataframe per metric
+high_skew_list_clean <- list()
+for (metric in metrics) {
+  high_skew_list_clean[[metric]] <- data.frame(
+    model = character(),
+    group = character(),
+    size = numeric(),
+    skewness = numeric(),
+    stringsAsFactors = FALSE
+  )
+}
 
 
-# remove outliers
-sink("outlier_removal_all.txt", split = TRUE)
-
-# loop through models, groups, sizes
-for (m in models) {
-  for (g in groups) {
-    for (s in sizes) {
+# loop through metrics for stat.desc and high skew detection again
+for (metric in metrics) {
+  
+  combined_file <- paste0(output_dir, "clean_statdesc_", metric, "_all.txt")
+  sink(combined_file, split = TRUE)
+  
+  for (m in models) {
+    for (g in groups) {
       
-      objname <- paste(m, g, s, sep = "_")
-      df <- get(objname)
+      individual_file <- paste0(output_dir, "clean_statdesc_", metric, "_", m, "_", g, ".txt")
+      sink(individual_file, split = TRUE)
       
-      # compute mean and SD
-      mean_val <- mean(df$word_mean, na.rm = TRUE)
-      sd_val <- sd(df$word_mean, na.rm = TRUE)
+      for (s in sizes) {
+        objname <- paste(m, g, s, metric, "clean", sep = "_")
+        df <- get(objname)
+        
+        cat("\n====================\n")
+        cat("Metric:", metric, " | Model:", m, " | Group:", g, " | Size:", s, "\n")
+        
+        # compute stat.desc
+        desc <- stat.desc(df[[metric]], norm = TRUE)
+        print(desc)
+        
+        # check skewness
+        skew_val <- as.numeric(desc["skewness"])
+        if (!is.na(skew_val) && abs(skew_val) > 1) {
+          high_skew_list_clean[[metric]] <- rbind(
+            high_skew_list_clean[[metric]],
+            data.frame(model = m, group = g, size = s, skewness = skew_val)
+          )
+        }
+      }
       
-      # keep only rows within ±3 SD
-      df_clean <- df[df$word_mean >= (mean_val - 3*sd_val) & 
-                     df$word_mean <= (mean_val + 3*sd_val), ]
-      
-      # calculate skewness for cleaned data
-      desc_clean <- psych::describe(df_clean$word_mean)
-      skew_clean <- desc_clean$skew
-      
-      cat("Model:", m, "Group:", g, "Size:", s, 
-          "- Original N:", nrow(df), 
-          "Clean N:", nrow(df_clean),
-          "Skewness:", round(skew_clean, 3), "\n")
-      
-      # assign cleaned dataframe to environment
-      assign(paste0(objname, "_clean"), df_clean)
+      sink()  # close individual file
     }
   }
+  
+  sink()  # close combined file
+  
+  # save high skew list per metric
+  write.csv(high_skew_list_clean[[metric]], 
+            paste0(output_dir, "high_skew_list_", metric, "_clean.csv"), 
+            row.names = FALSE)
 }
 
-sink() 
 
-
-# plot histograms for each model-group combination
-for (m in models) {
-  for (g in groups) {
+# plot histograms per metric, model, across groups & sizes (density)
+for (metric in metrics) {
+  for (m in models) {
     
-    # combine the five window sizes dataframes
-    df_combined <- map_dfr(sizes, function(s) {
-      objname <- paste(m, g, s, sep = "_")
-      df <- get(objname)
-      df$size <- s
-      df
+    df_combined <- map_dfr(groups, function(g) {
+      map_dfr(sizes, function(s) {
+        objname <- paste(m, g, s, sep = "_")
+        df <- get(paste(objname, metric, "clean", sep = "_"))
+        df %>%
+          mutate(size = factor(s, levels = sizes),
+                 group = g)
+      })
     })
     
-    df_combined <- df_combined %>%
-      mutate(size = factor(size, levels = sizes))
-    
-    p <- ggplot(df_combined, aes(x = word_mean)) +
-      geom_histogram(binwidth = 1, fill = "#D41B55", color = "#D41B55") +
-      facet_wrap(~ size, scales = "free_y") +
+    plot <- ggplot(df_combined, aes(x = .data[[metric]])) +
+      geom_histogram(aes(y = ..density..), binwidth = 1, fill = "#D41B55", color = "#D41B55") +
+      facet_grid(rows = vars(size), cols = vars(group), scales = "free_y") +
       theme_minimal() +
-      labs(title = paste("Model:", m, "| Group:", g),
-           x = "mean perplexity", y = "Count")
+      labs(title = paste("Metric:", metric, "| Model:", m),
+           x = metric, y = "Density")
     
-    print(p)
+    print(plot)
   }
 }
-
-# plot histograms for each model
-for (m in models) {
-  
-  # combine all groups and sizes for model
-  df_combined <- map_dfr(groups, function(g) {
-    map_dfr(sizes, function(s) {
-      objname <- paste(m, g, s, "clean", sep = "_")
-      df <- get(objname)
-      df %>%
-        mutate(size = factor(s, levels = sizes),
-               group = g)
-    })
-  })
-  
-  # facet_grid: rows = size, cols = group
-  # density instead of count because theres twice the mount of psychosis subjects
-  p <- ggplot(df_combined, aes(x = word_mean)) +
-  geom_histogram(aes(y = ..density..), binwidth = 1, fill = "#D41B55", color = "#D41B55") +
-  facet_grid(rows = vars(size), cols = vars(group), scales = "free_y") +
-  theme_minimal() +
-  labs(title = paste("Model:", m),
-       x = "mean perplexity",
-       y = "Density")
-
-  
-  print(p)
-}
-
-
-# define combined file
-combined_filename <- "statdesc_all.txt"
-
-# open sink for combined file
-sink(combined_filename, split = TRUE)
-
-# loop through models, groups, sizes
-for (m in models) {
-  for (g in groups) {
-    # file for individual model-group
-    filename <- paste0("statdesc_", m, "_", g, ".txt")
-    
-    # open sink for individual file
-    sink(filename, split = TRUE)
-    
-    for (s in sizes) {
-      objname <- paste(m, g, s, sep = "_")
-      df <- get(objname)
-      
-      # write header for combined and individual
-      cat("\n====================\n")
-      cat("Model:", m, "Group:", g, "Size:", s, "\n")
-      
-      # compute stat.desc
-      desc <- stat.desc(df$word_mean, norm = TRUE)
-      print(desc)
-    }
-    
-    # close individual file sink
-    sink()
-  }
-}
-
-# close combined file sink
-sink()
 
