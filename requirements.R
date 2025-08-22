@@ -1,0 +1,11 @@
+install.packages(c(
+  "tidyverse",
+  "pastecs",
+  "ggplot2",
+  "dplyr",
+  "readr",
+  "tidyverse",
+  "lme4",
+  "lmerTest",
+  "emmeans"
+))
