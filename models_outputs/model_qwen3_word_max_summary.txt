@@ -1,0 +1,47 @@
+Model name: model_qwen3_word_max 
+Formula: word_max ~ group * size + (1|id) 
+
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: formula_obj
+   Data: df
+
+REML criterion at convergence: 51324.9
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.2889 -0.0801  0.0003  0.0441 10.9736 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ id       (Intercept)   42103   205.2  
+ Residual             1405035  1185.3  
+Number of obs: 3022, groups:  id, 615
+
+Fixed effects:
+                      Estimate Std. Error      df t value Pr(>|t|)    
+(Intercept)             5128.2       85.7  3002.8  59.836  < 2e-16 ***
+grouppsychosis          -604.1      104.6  3002.7  -5.774 8.52e-09 ***
+size20                 -4514.0      119.0  2399.0 -37.931  < 2e-16 ***
+size30                 -4843.8      119.0  2408.5 -40.697  < 2e-16 ***
+size40                 -4940.0      118.6  2406.2 -41.660  < 2e-16 ***
+size50                 -4987.1      118.7  2408.4 -42.005  < 2e-16 ***
+grouppsychosis:size20    543.1      145.5  2400.6   3.732 0.000194 ***
+grouppsychosis:size30    582.3      145.3  2406.3   4.008 6.31e-05 ***
+grouppsychosis:size40    582.5      145.0  2404.7   4.018 6.06e-05 ***
+grouppsychosis:size50    587.9      145.2  2406.9   4.050 5.28e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) grppsy size20 size30 size40 size50 grp:20 grp:30 grp:40
+groppsychss -0.819                                                        
+size20      -0.700  0.573                                                 
+size30      -0.700  0.573  0.504                                          
+size40      -0.702  0.575  0.506  0.506                                   
+size50      -0.702  0.575  0.505  0.505  0.507                            
+grppsych:20  0.572 -0.698 -0.818 -0.412 -0.414 -0.413                     
+grppsych:30  0.573 -0.700 -0.413 -0.819 -0.414 -0.414  0.503              
+grppsych:40  0.575 -0.701 -0.414 -0.414 -0.818 -0.415  0.504  0.505       
+grppsych:50  0.574 -0.700 -0.413 -0.413 -0.415 -0.818  0.503  0.504  0.505
+
+
