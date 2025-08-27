@@ -94,7 +94,7 @@ for (m in models) {
       )
     
     print(plot)
-    ggsave(paste0(output_dir, m, "cor_lineplot.png"), plot, width = 10, height = 6)
+    ggsave(paste0(output_dir, m, "_cor_lineplot.png"), plot, width = 10, height = 6)
   })
 }
 
