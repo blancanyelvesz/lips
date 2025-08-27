@@ -5,6 +5,7 @@ perplexity_results*/
 *_controls/
 *_patients/
 *files/
+demographics/
 
 *.ini
 *.log
