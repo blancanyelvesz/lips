@@ -11,18 +11,23 @@ library(pastecs)
 library(effsize)
 library(vcd)
 
-# create output directory
-if (!dir.exists("outputs")) dir.create("outputs")
+# create directories
+data_dir <- "demographics/"
+if (!dir.exists("demographics_outputs")) dir.create("demographics_outputs")
+output_dir <- "demographics_outputs/"
 
 # create saving functions
 save_plot <- function(plot_obj, width = 8, height = 6) {
     name <- deparse(substitute(plot_obj)) 
-  ggsave(filename = paste0("outputs/plot_", name, ".png"), plot = plot_obj, width = width, height = height, dpi = 300)
+  ggsave(filename = paste0(output_dir, "plot_", name, ".png"), 
+         plot = plot_obj, 
+         width = width, height = height, dpi = 300)
 }
 
 save_table <- function(table_obj) {
   name <- deparse(substitute(table_obj))  
-  write.csv(table_obj, file = paste0("outputs/table_", name, ".csv"), row.names = FALSE)
+  write.csv(table_obj, file = paste0(output_dir, "table_", name, ".csv"), 
+            row.names = FALSE)
 }
 
 
@@ -31,13 +36,13 @@ save_test <- function(test_obj) {
   
   if (is.data.frame(test_obj) || is.matrix(test_obj)) {
     write.table(test_obj, 
-                file = paste0("outputs/test_", name, ".txt"), 
+                file = paste0(output_dir, "test_", name, ".txt"), 
                 sep = "\t", 
                 row.names = FALSE, 
                 quote = FALSE)
   } else {
     capture.output(print(test_obj), 
-                   file = paste0("outputs/test_", name, ".txt"))
+                   file = paste0(output_dir, "test_", name, ".txt"))
   }
 }
 
@@ -62,12 +67,13 @@ save_stats <- function(stat_obj, name = NULL) {
     stats_df <- stats_df[, c("group", setdiff(names(stats_df), "group"))]
   }
   
-  write.csv(stats_df, paste0("outputs/table_", name, ".csv"), row.names = FALSE)
+  write.csv(stats_df, paste0(output_dir, "table_", name, ".csv"), row.names = FALSE)
 }
 
 
 # read data
-data_raw <- read.csv(file = "Praat-Blancademographics_DATA_2025-08-07_1952.csv", head = TRUE, sep = ";")
+filename <- paste0(data_dir, "data_metadata_original.csv")
+data_raw <- read.csv(filename, head = TRUE, sep = ";")
 
 # rename columns
 data_raw <- data_raw %>%
@@ -124,7 +130,7 @@ data_raw <- data_raw %>%
 
 
 # read list of IDs with transcripts from txt file
-keep_ids <- scan("saved_all.txt", what = "", quiet = TRUE)
+keep_ids <- scan("preprocessing/saved_all.txt", what = "", quiet = TRUE)
 
 # keep only rows where participant ID is in keep_ids
 data <- data_raw %>% 
@@ -132,14 +138,17 @@ data <- data_raw %>%
 
 # find missing IDs
 missing_ids <- setdiff(keep_ids, data_raw$participant)
-capture.output(print(missing_ids), file = "outputs/excluded_participants.txt")
+writeLines(missing_ids, con = paste0(output_dir, "excluded_participants.txt"))
+
 
 # save filtered data for manual editing
-write.csv(data, "data_to_edit.csv", row.names = FALSE, fileEncoding = "UTF-8")
+filename <- paste0(data_dir, "data_to_edit.csv")
+write.csv(data, filename, row.names = FALSE, fileEncoding = "UTF-8")
 
 
 # load edited data
-data <- read.csv(file = "edited_data.csv", head = TRUE, sep = ",")
+filename <- paste0(data_dir, "data_metadata_edited.csv")
+data <- read.csv(filename, head = TRUE, sep = ",")
 
 # separate groups
 # actually unnecessary idk?
@@ -257,7 +266,7 @@ save_plot(age_group_histogram)
 # overlapping plots
 age_group_histogram_overlap <- ggplot(data, aes(x = age, fill = group)) +
   geom_histogram(alpha = 0.5, position = "identity") +
-  scale_fill_manual(values = c("control" = "#1B55D4", "psychosis" = "#D41B55")) +
+  scale_fill_manual(values = c("control" = "#1A85FF", "psychosis" = "#D41B55")) +
   labs(
     title = "Age Distribution by Group",
     x = "Age",
@@ -317,7 +326,7 @@ print(edu_group_histogram)
 # overlapping plot is again illegible
 edu_group_histogram_overlap <- ggplot(data, aes(x = education, fill = group)) +
   geom_histogram(alpha = 0.5, position = "identity", binwidth = 1) +
-  scale_fill_manual(values = c("control" = "#1B55D4", "psychosis" = "#D41B55")) +
+  scale_fill_manual(values = c("control" = "#1A85FF", "psychosis" = "#D41B55")) +
   labs(
     title = "Education distribution by group",
     x = "Education (years)",
@@ -380,7 +389,7 @@ print(paredu_group_histogram)
 # illegible overlapping plots
 paredu_group_histogram_overlap <- ggplot(data, aes(x = avg_parent_edu, fill = group)) +
   geom_histogram(alpha = 0.5, position = "identity", binwidth = 1) +
-  scale_fill_manual(values = c("control" = "#1B55D4", "psychosis" = "#D41B55")) +
+  scale_fill_manual(values = c("control" = "#1A85FF", "psychosis" = "#D41B55")) +
   labs(
     title = "Average parental education distribution by group",
     x = "Parental education (years)",
@@ -432,7 +441,7 @@ save_stats(gender_table)
 df <- as.data.frame(gender_table)
 colnames(df) <- c("Gender", "Group", "Count")
 
-gender_group_barplot <- ggplot(df, aes(x = Gender, y = Count, fill = Gender)) +
+gender_group_barplot1 <- ggplot(df, aes(x = Gender, y = Count, fill = Gender)) +
   geom_bar(stat = "identity", position = "dodge", color = "white", alpha = 0.8) +
   facet_wrap(~ Group) +
   # scale_fill_manual(values = c("man" = "#2CA25F", "woman" = "#F16913")) +
@@ -447,10 +456,10 @@ gender_group_barplot <- ggplot(df, aes(x = Gender, y = Count, fill = Gender)) +
     strip.text = element_text(face = "bold", size = 14),
     legend.position = "none"
   )
-save_plot(gender_group_barplot)
-print(gender_group_barplot)
+save_plot(gender_group_barplot1)
+print(gender_group_barplot1)
 
-ggplot(df, aes(x = Gender, y = Count, fill = Group)) +
+gender_group_barplot2 <- ggplot(df, aes(x = Gender, y = Count, fill = Group)) +
   geom_bar(stat = "identity", position = "dodge", color = "white", alpha = 0.8) +
   facet_wrap(~ Group) +
   scale_fill_manual(values = c("control" = "#1A85FF", "psychosis" = "#D41B55")) +
@@ -464,8 +473,10 @@ ggplot(df, aes(x = Gender, y = Count, fill = Group)) +
     strip.text = element_text(face = "bold", size = 14),
     legend.position = "none"
   )
+save_plot(gender_group_barplot2)
+print(gender_group_barplot2)
 
-ggplot(df, aes(x = Group, y = Count, fill = Group)) +
+gender_group_barplot3 <- ggplot(df, aes(x = Group, y = Count, fill = Group)) +
   geom_bar(stat = "identity", position = "dodge", color = "white", alpha = 0.8) +
   facet_wrap(~ Gender) +
   scale_fill_manual(values = c("control" = "#1A85FF", "psychosis" = "#D41B55")) +
@@ -479,7 +490,8 @@ ggplot(df, aes(x = Group, y = Count, fill = Group)) +
     strip.text = element_text(face = "bold", size = 14),
     legend.position = "none"
   )
-
+save_plot(gender_group_barplot3)
+print(gender_group_barplot3)
 
 
 # chi squared for gender
