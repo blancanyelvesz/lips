@@ -9,7 +9,7 @@ perplexity_results*/
 *.ini
 *.log
 *.json
-*.csv
+.csv
 debug*.txt
 *transcripts*.txt
 *.Rmd
