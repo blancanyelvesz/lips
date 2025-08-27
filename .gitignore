@@ -1,11 +1,10 @@
 old/
 other/
-silvias_code/
 *_v1/
 *results/
 *_controls/
 *_patients/
-data_analysis/
+
 
 *.ini
 *.log
@@ -13,3 +12,5 @@ data_analysis/
 *.csv
 debug*.txt
 *transcripts*.txt
+*.Rmd
+knittr_purl.R
