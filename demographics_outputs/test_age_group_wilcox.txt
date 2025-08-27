@@ -1,0 +1,7 @@
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  age by group
+W = 53090, p-value = 1.367e-07
+alternative hypothesis: true location shift is not equal to 0
+

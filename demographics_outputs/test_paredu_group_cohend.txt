@@ -1,0 +1,8 @@
+
+Cohen's d
+
+d estimate: -0.1062491 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.27833594  0.06583765 
+

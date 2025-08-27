@@ -1,0 +1,12 @@
+
+	Welch Two Sample t-test
+
+data:  avg_parent_edu by group
+t = -1.184, df = 379.04, p-value = 0.2372
+alternative hypothesis: true difference in means between group control and group psychosis is not equal to 0
+95 percent confidence interval:
+ -0.7999834  0.1986501
+sample estimates:
+  mean in group control mean in group psychosis 
+               12.75000                13.05067 
+

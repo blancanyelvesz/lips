@@ -1,0 +1,7 @@
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  avg_parent_edu by group
+W = 35615, p-value = 0.3188
+alternative hypothesis: true location shift is not equal to 0
+

@@ -1,0 +1,8 @@
+
+Cohen's d
+
+d estimate: 0.4960249 (small)
+95 percent confidence interval:
+    lower     upper 
+0.3248261 0.6672237 
+

@@ -1,0 +1,2 @@
+.y.	group1	group2	effsize	n1	n2	magnitude
+education	control	psychosis	0.251212550396058	204	401	small

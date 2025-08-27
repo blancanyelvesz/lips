@@ -1,0 +1,11 @@
+data$group: control
+       median          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness 
+ 1.400000e+01  1.275000e+01  2.106165e-01  4.153265e-01  8.871859e+00  2.978567e+00  2.336131e-01 -6.840004e-01 
+     skew.2SE      kurtosis      kurt.2SE    normtest.W    normtest.p 
+-1.989243e+00 -6.546208e-01 -9.564820e-01  9.089516e-01  9.713485e-10 
+--------------------------------------------------------------------------------------- 
+data$group: psychosis
+       median          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness 
+ 1.400000e+01  1.305067e+01  1.418753e-01  2.789733e-01  7.548228e+00  2.747404e+00  2.105183e-01 -6.044804e-01 
+     skew.2SE      kurtosis      kurt.2SE    normtest.W    normtest.p 
+-2.398940e+00 -5.486538e-01 -1.091539e+00  9.355670e-01  1.153140e-11 

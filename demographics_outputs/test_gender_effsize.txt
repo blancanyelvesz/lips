@@ -1,0 +1,7 @@
+                    X^2 df   P(> X^2)
+Likelihood Ratio 12.087  1 0.00050786
+Pearson          12.245  1 0.00046651
+
+Phi-Coefficient   : 0.141 
+Contingency Coeff.: 0.14 
+Cramer's V        : 0.141 

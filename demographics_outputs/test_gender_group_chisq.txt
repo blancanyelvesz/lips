@@ -1,0 +1,6 @@
+
+	Pearson's Chi-squared test with Yates' continuity correction
+
+data:  gender_table
+X-squared = 11.63, df = 1, p-value = 0.0006489
+
