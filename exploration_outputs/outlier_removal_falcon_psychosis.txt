@@ -1,0 +1,5 @@
+Model: falcon Group: psychosis Size: 10 - Original N: 411 Clean N: 408 Skewness: 0.552 
+Model: falcon Group: psychosis Size: 20 - Original N: 411 Clean N: 408 Skewness: 0.351 
+Model: falcon Group: psychosis Size: 30 - Original N: 411 Clean N: 408 Skewness: 0.302 
+Model: falcon Group: psychosis Size: 40 - Original N: 411 Clean N: 408 Skewness: 0.283 
+Model: falcon Group: psychosis Size: 50 - Original N: 411 Clean N: 408 Skewness: 0.281 

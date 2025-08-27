@@ -1,0 +1,45 @@
+
+====================
+Metric: word_min  | Model: falcon  | Group: control  | Size: 10 
+      nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
+ 2.050000e+02  0.000000e+00  0.000000e+00  6.009025e+00  2.474100e+01  1.873198e+01  2.932629e+03  1.451905e+01 
+         mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
+ 1.430551e+01  3.043555e-01  6.000858e-01  1.898961e+01  4.357707e+00  3.046175e-01  1.645732e-01  4.844787e-01 
+     kurtosis      kurt.2SE    normtest.W    normtest.p 
+-7.517662e-01 -1.111745e+00  9.729134e-01  5.441561e-04 
+
+====================
+Metric: word_min  | Model: falcon  | Group: control  | Size: 20 
+      nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
+ 205.00000000    0.00000000    0.00000000    5.91064882   21.81875420   15.90810537 2909.71288490   14.63099480 
+         mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
+  14.19372139    0.20613593    0.40643016    8.71086470    2.95141740    0.20793824   -0.29754702   -0.87593376 
+     kurtosis      kurt.2SE    normtest.W    normtest.p 
+  -0.08081321   -0.11951011    0.99082083    0.21952960 
+
+====================
+Metric: word_min  | Model: falcon  | Group: control  | Size: 30 
+      nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
+ 205.00000000    0.00000000    0.00000000    7.77836037   21.91932106   14.14096069 2893.54284859   14.14298248 
+         mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
+  14.11484316    0.18647909    0.36767352    7.12876212    2.66997418    0.18916074    0.02980314    0.08773596 
+     kurtosis      kurt.2SE    normtest.W    normtest.p 
+  -0.19734780   -0.29184657    0.99542011    0.79613912 
+
+====================
+Metric: word_min  | Model: falcon  | Group: control  | Size: 40 
+      nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
+ 205.00000000    0.00000000    0.00000000    8.22620106   20.98401070   12.75780964 2927.46836376   14.32363319 
+         mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
+  14.28033348    0.17444727    0.34395086    6.23852919    2.49770479    0.17490521    0.09272042    0.27295501 
+     kurtosis      kurt.2SE    normtest.W    normtest.p 
+  -0.10933080   -0.16168318    0.99487558    0.71535683 
+
+====================
+Metric: word_min  | Model: falcon  | Group: control  | Size: 50 
+     nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
+2.050000e+02 0.000000e+00 0.000000e+00 7.129430e+00 2.195655e+01 1.482712e+01 2.931916e+03 1.437889e+01 1.430203e+01 
+     SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
+1.769679e-01 3.489207e-01 6.420117e+00 2.533795e+00 1.771633e-01 3.371912e-02 9.926402e-02 9.871092e-02 1.459780e-01 
+  normtest.W   normtest.p 
+9.962178e-01 8.977383e-01 

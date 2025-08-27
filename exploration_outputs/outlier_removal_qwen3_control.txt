@@ -1,0 +1,5 @@
+Model: qwen3 Group: control Size: 10 - Original N: 205 Clean N: 202 Skewness: 0.546 
+Model: qwen3 Group: control Size: 20 - Original N: 205 Clean N: 204 Skewness: 0.384 
+Model: qwen3 Group: control Size: 30 - Original N: 205 Clean N: 204 Skewness: 0.362 
+Model: qwen3 Group: control Size: 40 - Original N: 205 Clean N: 205 Skewness: 0.442 
+Model: qwen3 Group: control Size: 50 - Original N: 205 Clean N: 205 Skewness: 0.468 

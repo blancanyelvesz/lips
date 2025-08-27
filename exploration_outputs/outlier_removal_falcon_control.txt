@@ -1,0 +1,5 @@
+Model: falcon Group: control Size: 10 - Original N: 205 Clean N: 204 Skewness: 0.611 
+Model: falcon Group: control Size: 20 - Original N: 205 Clean N: 205 Skewness: 0.764 
+Model: falcon Group: control Size: 30 - Original N: 205 Clean N: 205 Skewness: 0.737 
+Model: falcon Group: control Size: 40 - Original N: 205 Clean N: 204 Skewness: 0.643 
+Model: falcon Group: control Size: 50 - Original N: 205 Clean N: 204 Skewness: 0.622 

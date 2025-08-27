@@ -1,0 +1,45 @@
+
+====================
+Metric: word_mean  | Model: geitje  | Group: control  | Size: 10 
+     nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
+2.040000e+02 0.000000e+00 0.000000e+00 1.533848e+01 3.160479e+01 1.626631e+01 4.361810e+03 2.048083e+01 2.138142e+01 
+     SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
+2.398199e-01 4.728575e-01 1.173277e+01 3.425314e+00 1.602005e-01 7.660222e-01 2.249626e+00 1.496059e-01 2.207161e-01 
+  normtest.W   normtest.p 
+9.523836e-01 2.615275e-06 
+
+====================
+Metric: word_mean  | Model: geitje  | Group: control  | Size: 20 
+     nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
+2.030000e+02 0.000000e+00 0.000000e+00 1.029102e+01 2.057259e+01 1.028157e+01 2.906659e+03 1.385936e+01 1.431852e+01 
+     SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
+1.473518e-01 2.905450e-01 4.407650e+00 2.099440e+00 1.466241e-01 6.525850e-01 1.911853e+00 7.326651e-03 1.078323e-02 
+  normtest.W   normtest.p 
+9.626267e-01 3.351351e-05 
+
+====================
+Metric: word_mean  | Model: geitje  | Group: control  | Size: 30 
+     nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
+2.030000e+02 0.000000e+00 0.000000e+00 8.388990e+00 1.707082e+01 8.681832e+00 2.421893e+03 1.160028e+01 1.193051e+01 
+     SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
+1.208305e-01 2.382508e-01 2.963801e+00 1.721569e+00 1.442997e-01 6.336850e-01 1.856482e+00 1.174641e-01 1.728815e-01 
+  normtest.W   normtest.p 
+9.675047e-01 1.238835e-04 
+
+====================
+Metric: word_mean  | Model: geitje  | Group: control  | Size: 40 
+     nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
+2.030000e+02 0.000000e+00 0.000000e+00 7.403054e+00 1.539578e+01 7.992726e+00 2.171701e+03 1.042162e+01 1.069804e+01 
+     SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
+1.079974e-01 2.129468e-01 2.367678e+00 1.538726e+00 1.438326e-01 6.403809e-01 1.876099e+00 1.978390e-01 2.911757e-01 
+  normtest.W   normtest.p 
+9.687497e-01 1.753792e-04 
+
+====================
+Metric: word_mean  | Model: geitje  | Group: control  | Size: 50 
+     nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
+2.030000e+02 0.000000e+00 0.000000e+00 6.803818e+00 1.438748e+01 7.583662e+00 2.014575e+03 9.690800e+00 9.924013e+00 
+     SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
+9.999418e-02 1.971663e-01 2.029764e+00 1.424698e+00 1.435606e-01 6.597501e-01 1.932844e+00 2.604648e-01 3.833473e-01 
+  normtest.W   normtest.p 
+9.680040e-01 1.423144e-04 

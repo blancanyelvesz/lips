@@ -1,0 +1,5 @@
+Model: qwen3 Group: psychosis Size: 10 - Original N: 411 Clean N: 406 Skewness: 0.508 
+Model: qwen3 Group: psychosis Size: 20 - Original N: 411 Clean N: 407 Skewness: 0.397 
+Model: qwen3 Group: psychosis Size: 30 - Original N: 411 Clean N: 407 Skewness: 0.34 
+Model: qwen3 Group: psychosis Size: 40 - Original N: 411 Clean N: 408 Skewness: 0.353 
+Model: qwen3 Group: psychosis Size: 50 - Original N: 411 Clean N: 408 Skewness: 0.345 

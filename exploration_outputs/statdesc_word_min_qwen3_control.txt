@@ -1,0 +1,45 @@
+
+====================
+Metric: word_min  | Model: qwen3  | Group: control  | Size: 10 
+     nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
+2.050000e+02 0.000000e+00 0.000000e+00 1.178687e+01 5.914859e+01 4.736173e+01 5.891754e+03 2.835332e+01 2.874026e+01 
+     SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
+5.409362e-01 1.066543e+00 5.998545e+01 7.745028e+00 2.694835e-01 3.335800e-01 9.820094e-01 4.234174e-01 6.261682e-01 
+  normtest.W   normtest.p 
+9.860529e-01 4.114833e-02 
+
+====================
+Metric: word_min  | Model: qwen3  | Group: control  | Size: 20 
+     nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
+ 205.0000000    0.0000000    0.0000000   10.3810081   41.9230003   31.5419922 4957.2521505   24.0620117   24.1817178 
+     SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
+   0.3943043    0.7774343   31.8725476    5.6455777    0.2334647    0.2060863    0.6066873    0.2674041    0.3954488 
+  normtest.W   normtest.p 
+   0.9937671    0.5469509 
+
+====================
+Metric: word_min  | Model: qwen3  | Group: control  | Size: 30 
+     nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
+ 205.0000000    0.0000000    0.0000000   11.6761646   43.0919189   31.4157543 4855.7634220   23.3725662   23.6866508 
+     SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
+   0.3477283    0.6856023   24.7875678    4.9787115    0.2101906    0.3146539    0.9262939    0.2511550    0.3714190 
+  normtest.W   normtest.p 
+   0.9892853    0.1292132 
+
+====================
+Metric: word_min  | Model: qwen3  | Group: control  | Size: 40 
+     nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
+ 205.0000000    0.0000000    0.0000000    9.0182171   39.2803802   30.2621632 4932.9546337   23.6468296   24.0631933 
+     SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
+   0.3275396    0.6457970   21.9928471    4.6896532    0.1948891    0.2267774    0.6675988    0.4682315    0.6924412 
+  normtest.W   normtest.p 
+   0.9908379    0.2208025 
+
+====================
+Metric: word_min  | Model: qwen3  | Group: control  | Size: 50 
+     nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
+ 205.0000000    0.0000000    0.0000000    9.2257433   40.0760269   30.8502836 4997.0395851   23.7827625   24.3758029 
+     SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
+   0.3265136    0.6437740   21.8552778    4.6749629    0.1917870    0.1633955    0.4810117    0.3596041    0.5317983 
+  normtest.W   normtest.p 
+   0.9938303    0.5562469 
