@@ -110,10 +110,12 @@ def process_folder(folder_path, output_csv, batch_size=10):
         print(f"Processed {min(i + batch_size, total_files)} of {total_files} files...")
 
 
-os.makedirs("results", exist_ok=True)
+os.makedirs("perplexity_results", exist_ok=True)
+output_dir = "perplexity_results"
+
 for n in range(10, 51, 10):
     window_size = n
-    output_csv = f"results/output_perp_{safe_model_name}_{method}_{folder_path}_{window_size}.csv"
+    output_csv = f"{output_dir}/output_perp_{safe_model_name}_{method}_{folder_path}_{window_size}.csv"
     print(f"Using window size: {window_size}")
     process_folder(folder_path, output_csv, batch_size=batch_size)
     
