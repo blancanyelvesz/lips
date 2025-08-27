@@ -1,4 +1,5 @@
 knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
 library(lme4)
 library(lmerTest)
 library(dplyr)
@@ -15,8 +16,8 @@ sizes <- c("10","20","30","40","50")
 metrics <- c("word_mean", "word_std", "word_min", "word_max")
 
 # define directories
-data_directory <- "clean_perp_data/"
-output_directory <- "models_outputs/"
+data_dir <- "perplexity_results_clean/"
+output_dir <- "models_outputs/"
 if (!dir.exists("models_outputs")) dir.create("models_outputs")
 
 # load all clean data into a single dataframe per LLM and metric
@@ -26,7 +27,7 @@ for (metric in metrics) {
     combined_df <- map_dfr(groups, function(g) {
       map_dfr(sizes, function(s) {
         filename <- paste(m, g, s, metric, "clean.csv", sep = "_")
-        filepath <- paste0(data_directory, filename)
+        filepath <- paste0(data_dir, filename)
         df <- read_csv(filepath, show_col_types = FALSE)
         df$group <- as.factor(g)
         df$size <- as.factor(s)
@@ -58,7 +59,7 @@ for (metric in metrics) {
       assign(model_name, model, envir = .GlobalEnv)
       
       # save to text file
-      filepath <- paste0(output_directory, model_name, "_summary.txt")
+      filepath <- paste0(output_dir, model_name, "_summary.txt")
       sink(filepath, split = TRUE)
       cat("Model name:", model_name, "\n")
       cat("Formula:", formula_str, "\n\n")
@@ -94,7 +95,7 @@ for(metric in metrics) {
       geom_line(size = 1.5) +
       geom_point(size = 3, shape = 21, fill = "white") +
       geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL), width = 0.15, size = 0.8) +
-      scale_color_manual(values = c("control" = "#1f77b4", "psychosis" = "#D41B55")) +
+      scale_color_manual(values = c("control" = "#1A85FF", "psychosis" = "#D41B55")) +
       theme_minimal(base_size = 14) +
       theme(legend.position = "top",
             panel.grid.major = element_line(color = "grey85"),
@@ -105,7 +106,7 @@ for(metric in metrics) {
            color = "Group")
     
     # save the plot
-    ggsave(filename = paste0(output_directory, m, "_", metric, "_predicted.png"),
+    ggsave(filename = paste0(output_dir, m, "_", metric, "_predicted.png"),
            plot = plot, width = 10, height = 10)
     
     # print plot to console
