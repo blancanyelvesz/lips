@@ -1,0 +1,7 @@
+"model","group","size","skewness"
+"qwen3","control","10",1.00938656393887
+"qwen3","psychosis","10",1.31179287307007
+"geitje","control","10",1.09934970175767
+"geitje","psychosis","10",1.42552074467246
+"geitje","psychosis","20",1.21866088707183
+"geitje","psychosis","30",1.02707947898594

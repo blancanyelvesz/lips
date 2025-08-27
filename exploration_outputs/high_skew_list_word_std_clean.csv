@@ -1,0 +1,12 @@
+"model","group","size","skewness"
+"gpt2","psychosis","10",1.17992921842525
+"qwen3","control","10",1.29485419823831
+"qwen3","psychosis","10",1.57150433785601
+"qwen3","psychosis","20",1.03272808500491
+"qwen3","psychosis","30",1.00116503080935
+"falcon","psychosis","10",1.06959386374197
+"geitje","control","10",1.60905147979081
+"geitje","control","20",1.02520233666655
+"geitje","psychosis","10",1.28169899822115
+"geitje","psychosis","20",1.14617403831751
+"geitje","psychosis","30",1.02585487035908
