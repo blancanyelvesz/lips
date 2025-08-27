@@ -12,11 +12,11 @@ sizes  <- c("10", "20", "30", "40", "50")
 metrics <- c("word_mean", "word_std", "word_min", "word_max")
 
 # define directories
-data_dir <- "perp_data/"
-if (!dir.exists("outputs")) dir.create("outputs")
-output_dir <- "outputs/"
-if (!dir.exists("clean_perp_data")) dir.create("clean_perp_data")
-clean_dir <- "clean_perp_data/"
+data_dir <- "perplexity_results/"
+if (!dir.exists("exploration_outputs")) dir.create("exploration_outputs")
+output_dir <- "exploration_outputs/"
+if (!dir.exists("perplexity_results_clean")) dir.create("perplexity_results_clean")
+clean_dir <- "perplexity_results_clean/"
 
 # load a dataframe per perplexity output csv
 for (m in models) {
@@ -68,13 +68,13 @@ for (metric in metrics) {
 for (metric in metrics) {
   
   combined_file <- paste0(output_dir, "statdesc_", metric, "_all.txt")
-  sink(combined_file, split = TRUE)
+  sink(combined_file)
   
   for (m in models) {
     for (g in groups) {
       
       individual_file <- paste0(output_dir, "statdesc_", metric, "_", m, "_", g, ".txt")
-      sink(individual_file, split = TRUE)
+      sink(individual_file)
       
       for (s in sizes) {
         objname <- paste(m, g, s, sep = "_")
@@ -227,6 +227,52 @@ for (metric in metrics) {
            x = metric, y = "Density")
     
     print(plot)
+    filename <- paste0(output_dir, "plot_", metric, "_", m, ".png")
+    ggsave(filename, plot = plot, width = 10, height = 8, dpi = 300)
+  }
+}
+
+
+# Define custom colors for groups
+group_colors <- c("control" = "#1A85FF", "psychosis" = "#D41B55")
+
+for (metric in metrics) {
+  for (m in models) {
+    
+    df_combined <- map_dfr(groups, function(g) {
+      map_dfr(sizes, function(s) {
+        objname <- paste(m, g, s, sep = "_")
+        df <- get(paste(objname, metric, "clean", sep = "_"))
+        df %>%
+          mutate(size = factor(s, levels = sizes),
+                 group = g)
+      })
+    })
+    
+    # Histogram with group colors for both fill and border
+    hist_plot <- ggplot(df_combined, aes(x = .data[[metric]], fill = group, color = group)) +
+      geom_histogram(aes(y = ..density..), binwidth = 1, alpha = 0.7, position = "identity") +
+      scale_fill_manual(values = group_colors) +
+      scale_color_manual(values = group_colors) +
+      facet_grid(rows = vars(size), cols = vars(group), scales = "free_y") +
+      theme_minimal() +
+      labs(title = paste("Histogram | Metric:", metric, "| Model:", m),
+           x = metric, y = "Density")
+    
+    ggsave(paste0(output_dir, "histogram_", metric, "_", m, ".png"),
+           plot = hist_plot, width = 10, height = 8, dpi = 300)
+    
+    # Violin plot with custom group colors
+    violin_plot <- ggplot(df_combined, aes(x = size, y = .data[[metric]], fill = group)) +
+      geom_violin(trim = FALSE, alpha = 0.7, color = NA) +
+      scale_fill_manual(values = group_colors) +
+      facet_wrap(~group) +
+      theme_minimal() +
+      labs(title = paste("Violin Plot | Metric:", metric, "| Model:", m),
+           x = "Size", y = metric)
+    
+    ggsave(paste0(output_dir, "violin_", metric, "_", m, ".png"),
+           plot = violin_plot, width = 10, height = 8, dpi = 300)
   }
 }
 
