@@ -10,7 +10,7 @@ metrics <- c("word_mean", "word_std", "word_min", "word_max")
 panss_cols <- c("panss_total", "panss_positive", "panss_negative", "panss_general")
 
 # define directories
-data_dir <- "clean_perp_data/"
+data_dir <- "perplexity_results_clean/"
 output_dir <- "panss_outputs/"
 if (!dir.exists("panss_outputs")) dir.create("panss_outputs")
 
