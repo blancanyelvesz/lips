@@ -8,8 +8,7 @@ Size 30 : Diff = -2.744 , p = 0.5028
 Size 40 : Diff = -3.948 , p = 0.335  
 Size 50 : Diff = -4.372 , p = 0.2857  
 -------------------------------------------------- 
-[1] "C:/Users/blanc/Documents"
-3 
+Metric: mean perp. | Model: qwen3 
 Size 10 : Diff = -20.923 , p = 0 *** 
 Size 20 : Diff = -7.178 , p = 0.0019 ** 
 Size 30 : Diff = -5.173 , p = 0.025 * 
