@@ -1,5 +1,0 @@
-Model: gpt2 Group: psychosis Size: 10 - Original N: 411 Clean N: 408 Skewness: 0.281 
-Model: gpt2 Group: psychosis Size: 20 - Original N: 411 Clean N: 409 Skewness: 0.022 
-Model: gpt2 Group: psychosis Size: 30 - Original N: 411 Clean N: 409 Skewness: -0.076 
-Model: gpt2 Group: psychosis Size: 40 - Original N: 411 Clean N: 410 Skewness: -0.071 
-Model: gpt2 Group: psychosis Size: 50 - Original N: 411 Clean N: 410 Skewness: -0.072 

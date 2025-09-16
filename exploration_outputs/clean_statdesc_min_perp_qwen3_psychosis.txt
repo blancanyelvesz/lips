@@ -1,0 +1,50 @@
+====================
+Metric: min_perp | Model: qwen3 | Group: psychosis | Size: 10
+      nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
+ 4.090000e+02  0.000000e+00  0.000000e+00  1.152812e+01  4.959121e+01  3.806309e+01  1.141961e+04  2.770932e+01 
+         mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
+ 2.792080e+01  3.718213e-01  7.309246e-01  5.654469e+01  7.519620e+00  2.693197e-01  2.094867e-01  8.679543e-01 
+     kurtosis      kurt.2SE    normtest.W    normtest.p 
+-4.990334e-01 -1.036290e+00  9.905634e-01  1.013128e-02 
+
+
+====================
+Metric: min_perp | Model: qwen3 | Group: psychosis | Size: 20
+     nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
+ 408.0000000    0.0000000    0.0000000    9.4918718   39.2245827   29.7327108 9612.8887968   23.4717369   23.5610020 
+     SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
+   0.2614570    0.5139748   27.8907903    5.2811732    0.2241489    0.1577860    0.6529519   -0.1701564   -0.3529186 
+  normtest.W   normtest.p 
+   0.9964611    0.5079443 
+
+
+====================
+Metric: min_perp | Model: qwen3 | Group: psychosis | Size: 30
+      nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
+ 408.00000000    0.00000000    0.00000000   10.35046482   38.05576706   27.70530224 9286.07904243   22.54356098 
+         mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
+  22.75999765    0.24444388    0.48053016   24.37914641    4.93752432    0.21693870    0.32535170    1.34637411 
+     kurtosis      kurt.2SE    normtest.W    normtest.p 
+  -0.15980953   -0.33145840    0.99090832    0.01296416 
+
+
+====================
+Metric: min_perp | Model: qwen3 | Group: psychosis | Size: 40
+      nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
+ 4.070000e+02  0.000000e+00  0.000000e+00  1.052530e+01  3.642284e+01  2.589754e+01  9.173617e+03  2.227874e+01 
+         mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
+ 2.253960e+01  2.245096e-01  4.413463e-01  2.051465e+01  4.529310e+00  2.009490e-01  3.450374e-01  1.426099e+00 
+     kurtosis      kurt.2SE    normtest.W    normtest.p 
+-2.426723e-01 -5.027130e-01  9.888163e-01  3.313954e-03 
+
+
+====================
+Metric: min_perp | Model: qwen3 | Group: psychosis | Size: 50
+      nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
+ 4.080000e+02  0.000000e+00  0.000000e+00  1.177122e+01  3.635844e+01  2.458721e+01  9.300898e+03  2.229055e+01 
+         mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
+ 2.279632e+01  2.266450e-01  4.455410e-01  2.095813e+01  4.578005e+00  2.008221e-01  4.346327e-01  1.798602e+00 
+     kurtosis      kurt.2SE    normtest.W    normtest.p 
+-1.910848e-01 -3.963259e-01  9.823338e-01  6.965515e-05 
+
+

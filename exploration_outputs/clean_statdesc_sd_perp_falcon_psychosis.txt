@@ -1,0 +1,50 @@
+====================
+Metric: sd_perp | Model: falcon | Group: psychosis | Size: 10
+     nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
+4.040000e+02 0.000000e+00 0.000000e+00 2.987582e+01 2.236276e+02 1.937517e+02 4.490265e+04 1.048484e+02 1.111452e+02 
+     SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
+1.662394e+00 3.268046e+00 1.116475e+03 3.341370e+01 3.006311e-01 1.069594e+00 4.404614e+00 1.261176e+00 2.603085e+00 
+  normtest.W   normtest.p 
+9.305271e-01 9.186396e-13 
+
+
+====================
+Metric: sd_perp | Model: falcon | Group: psychosis | Size: 20
+     nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
+4.030000e+02 0.000000e+00 0.000000e+00 1.106174e+01 5.541891e+01 4.435717e+01 1.146437e+04 2.704039e+01 2.844756e+01 
+     SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
+3.720298e-01 7.313670e-01 5.577770e+01 7.468447e+00 2.625338e-01 8.296253e-01 3.412217e+00 7.306546e-01 1.506237e+00 
+  normtest.W   normtest.p 
+9.582594e-01 2.812385e-09 
+
+
+====================
+Metric: sd_perp | Model: falcon | Group: psychosis | Size: 30
+     nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
+4.030000e+02 0.000000e+00 0.000000e+00 7.179100e+00 3.200306e+01 2.482396e+01 6.510820e+03 1.579993e+01 1.615588e+01 
+     SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
+2.170725e-01 4.267390e-01 1.898955e+01 4.357700e+00 2.697284e-01 6.788669e-01 2.792154e+00 4.325434e-01 8.916836e-01 
+  normtest.W   normtest.p 
+9.693878e-01 1.795243e-07 
+
+
+====================
+Metric: sd_perp | Model: falcon | Group: psychosis | Size: 40
+     nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
+4.020000e+02 0.000000e+00 0.000000e+00 3.555770e+00 2.206323e+01 1.850746e+01 4.576754e+03 1.117916e+01 1.138496e+01 
+     SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
+1.579535e-01 3.105204e-01 1.002962e+01 3.166958e+00 2.781703e-01 5.500948e-01 2.259731e+00 1.810256e-01 3.727247e-01 
+  normtest.W   normtest.p 
+9.798441e-01 2.166275e-05 
+
+
+====================
+Metric: sd_perp | Model: falcon | Group: psychosis | Size: 50
+     nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
+4.050000e+02 0.000000e+00 0.000000e+00 3.116359e+00 1.719753e+01 1.408117e+01 3.619111e+03 8.596148e+00 8.936076e+00 
+     SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
+1.297457e-01 2.550610e-01 6.817747e+00 2.611082e+00 2.921955e-01 5.890080e-01 2.428527e+00 1.584512e-01 3.274452e-01 
+  normtest.W   normtest.p 
+9.757564e-01 2.735271e-06 
+
+

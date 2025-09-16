@@ -1,5 +1,0 @@
-Model: geitje Group: control Size: 10 - Original N: 205 Clean N: 204 Skewness: 0.766 
-Model: geitje Group: control Size: 20 - Original N: 205 Clean N: 203 Skewness: 0.653 
-Model: geitje Group: control Size: 30 - Original N: 205 Clean N: 203 Skewness: 0.634 
-Model: geitje Group: control Size: 40 - Original N: 205 Clean N: 203 Skewness: 0.64 
-Model: geitje Group: control Size: 50 - Original N: 205 Clean N: 203 Skewness: 0.66 

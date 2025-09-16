@@ -1,6 +1,5 @@
-
 ====================
-Metric: word_max  | Model: qwen3  | Group: control  | Size: 10 
+Metric: word_max | Model: qwen3 | Group: control | Size: 10
      nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
 2.050000e+02 0.000000e+00 0.000000e+00 1.311814e+03 2.941744e+04 2.810562e+04 1.181485e+06 4.671364e+03 5.763343e+03 
      SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
@@ -8,8 +7,9 @@ Metric: word_max  | Model: qwen3  | Group: control  | Size: 10
   normtest.W   normtest.p 
 7.188560e-01 2.422596e-18 
 
+
 ====================
-Metric: word_max  | Model: qwen3  | Group: control  | Size: 20 
+Metric: word_max | Model: qwen3 | Group: control | Size: 20
      nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
 2.050000e+02 0.000000e+00 0.000000e+00 2.925828e+02 2.321679e+03 2.029096e+03 1.315429e+05 5.643138e+02 6.416727e+02 
      SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
@@ -17,8 +17,9 @@ Metric: word_max  | Model: qwen3  | Group: control  | Size: 20
   normtest.W   normtest.p 
 7.939541e-01 1.002505e-15 
 
+
 ====================
-Metric: word_max  | Model: qwen3  | Group: control  | Size: 30 
+Metric: word_max | Model: qwen3 | Group: control | Size: 30
      nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
 2.050000e+02 0.000000e+00 0.000000e+00 1.548811e+02 6.705045e+02 5.156234e+02 5.977728e+04 2.685044e+02 2.915965e+02 
      SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
@@ -26,8 +27,9 @@ Metric: word_max  | Model: qwen3  | Group: control  | Size: 30
   normtest.W   normtest.p 
 8.797701e-01 1.041847e-11 
 
+
 ====================
-Metric: word_max  | Model: qwen3  | Group: control  | Size: 40 
+Metric: word_max | Model: qwen3 | Group: control | Size: 40
      nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
 2.050000e+02 0.000000e+00 0.000000e+00 1.086819e+02 4.328475e+02 3.241656e+02 3.900040e+04 1.776457e+02 1.902459e+02 
      SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
@@ -35,11 +37,14 @@ Metric: word_max  | Model: qwen3  | Group: control  | Size: 40
   normtest.W   normtest.p 
 9.139721e-01 1.524836e-09 
 
+
 ====================
-Metric: word_max  | Model: qwen3  | Group: control  | Size: 50 
+Metric: word_max | Model: qwen3 | Group: control | Size: 50
      nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
 2.050000e+02 0.000000e+00 0.000000e+00 7.011333e+01 3.506658e+02 2.805525e+02 2.936800e+04 1.371863e+02 1.432586e+02 
      SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
 2.648280e+00 5.221510e+00 1.437744e+03 3.791760e+01 2.646795e-01 1.530761e+00 4.506330e+00 4.395651e+00 6.500482e+00 
   normtest.W   normtest.p 
 9.039726e-01 3.160261e-10 
+
+

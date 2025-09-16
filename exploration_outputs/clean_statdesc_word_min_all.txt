@@ -1,6 +1,6 @@
-
 ====================
-Metric: word_min  | Model: gpt2  | Group: control  | Size: 10 
+Metric: word_min | Model: gpt2 | Group: control | Size: 10
+
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
   205.0000000     0.0000000     0.0000000    14.7230635   166.5996246   151.8765612 17581.8018484    82.3468475 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -8,8 +8,10 @@ Metric: word_min  | Model: gpt2  | Group: control  | Size: 10
      kurtosis      kurt.2SE    normtest.W    normtest.p 
    -0.3428154    -0.5069704     0.9933831     0.4921239 
 
+
 ====================
-Metric: word_min  | Model: gpt2  | Group: control  | Size: 20 
+Metric: word_min | Model: gpt2 | Group: control | Size: 20
+
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
   204.0000000     0.0000000     0.0000000    22.2649307   154.5809784   132.3160477 18006.3004112    88.6130104 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -17,8 +19,10 @@ Metric: word_min  | Model: gpt2  | Group: control  | Size: 20
      kurtosis      kurt.2SE    normtest.W    normtest.p 
    -0.0774665    -0.1142876     0.9948324     0.7120784 
 
+
 ====================
-Metric: word_min  | Model: gpt2  | Group: control  | Size: 30 
+Metric: word_min | Model: gpt2 | Group: control | Size: 30
+
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
   204.0000000     0.0000000     0.0000000    31.4887543   144.6738739   113.1851196 18379.0832710    91.3591080 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -26,8 +30,10 @@ Metric: word_min  | Model: gpt2  | Group: control  | Size: 30
      kurtosis      kurt.2SE    normtest.W    normtest.p 
    -0.4360767    -0.6433513     0.9900383     0.1704969 
 
+
 ====================
-Metric: word_min  | Model: gpt2  | Group: control  | Size: 40 
+Metric: word_min | Model: gpt2 | Group: control | Size: 40
+
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
   204.0000000     0.0000000     0.0000000    31.0979786   145.3934479   114.2954693 18621.0784931    91.6470222 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -35,8 +41,10 @@ Metric: word_min  | Model: gpt2  | Group: control  | Size: 40
      kurtosis      kurt.2SE    normtest.W    normtest.p 
    -0.2534282    -0.3738869     0.9952803     0.7788311 
 
+
 ====================
-Metric: word_min  | Model: gpt2  | Group: control  | Size: 50 
+Metric: word_min | Model: gpt2 | Group: control | Size: 50
+
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
  2.040000e+02  0.000000e+00  0.000000e+00  3.482143e+01  1.400340e+02  1.052126e+02  1.882328e+04  9.243633e+01 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -44,8 +52,10 @@ Metric: word_min  | Model: gpt2  | Group: control  | Size: 50
      kurtosis      kurt.2SE    normtest.W    normtest.p 
  6.575412e-02  9.700816e-02  9.929662e-01  4.401181e-01 
 
+
 ====================
-Metric: word_min  | Model: gpt2  | Group: psychosis  | Size: 10 
+Metric: word_min | Model: gpt2 | Group: psychosis | Size: 10
+
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
  4.090000e+02  0.000000e+00  0.000000e+00  3.205894e+01  1.591057e+02  1.270467e+02  3.558229e+04  8.607092e+01 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -53,8 +63,10 @@ Metric: word_min  | Model: gpt2  | Group: psychosis  | Size: 10
      kurtosis      kurt.2SE    normtest.W    normtest.p 
 -3.151409e-01 -6.544196e-01  9.915982e-01  2.043704e-02 
 
+
 ====================
-Metric: word_min  | Model: gpt2  | Group: psychosis  | Size: 20 
+Metric: word_min | Model: gpt2 | Group: psychosis | Size: 20
+
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
  4.100000e+02  0.000000e+00  0.000000e+00  1.975068e+01  1.464911e+02  1.267404e+02  3.537306e+04  8.560957e+01 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -62,8 +74,10 @@ Metric: word_min  | Model: gpt2  | Group: psychosis  | Size: 20
      kurtosis      kurt.2SE    normtest.W    normtest.p 
 -3.211356e-01 -6.676733e-01  9.956735e-01  3.194616e-01 
 
+
 ====================
-Metric: word_min  | Model: gpt2  | Group: psychosis  | Size: 30 
+Metric: word_min | Model: gpt2 | Group: psychosis | Size: 30
+
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
  4.100000e+02  0.000000e+00  0.000000e+00  1.998017e+01  1.565666e+02  1.365865e+02  3.635906e+04  8.842659e+01 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -71,8 +85,10 @@ Metric: word_min  | Model: gpt2  | Group: psychosis  | Size: 30
      kurtosis      kurt.2SE    normtest.W    normtest.p 
 -5.502537e-02 -1.144033e-01  9.983133e-01  9.620303e-01 
 
+
 ====================
-Metric: word_min  | Model: gpt2  | Group: psychosis  | Size: 40 
+Metric: word_min | Model: gpt2 | Group: psychosis | Size: 40
+
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
  4.100000e+02  0.000000e+00  0.000000e+00  2.911819e+01  1.493047e+02  1.201865e+02  3.691320e+04  8.971790e+01 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -80,8 +96,10 @@ Metric: word_min  | Model: gpt2  | Group: psychosis  | Size: 40
      kurtosis      kurt.2SE    normtest.W    normtest.p 
 -2.119521e-01 -4.406698e-01  9.969244e-01  6.344667e-01 
 
+
 ====================
-Metric: word_min  | Model: gpt2  | Group: psychosis  | Size: 50 
+Metric: word_min | Model: gpt2 | Group: psychosis | Size: 50
+
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
  4.100000e+02  0.000000e+00  0.000000e+00  3.757921e+01  1.511741e+02  1.135949e+02  3.718380e+04  9.071875e+01 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -89,8 +107,10 @@ Metric: word_min  | Model: gpt2  | Group: psychosis  | Size: 50
      kurtosis      kurt.2SE    normtest.W    normtest.p 
 -2.723161e-01 -5.661726e-01  9.973353e-01  7.534264e-01 
 
+
 ====================
-Metric: word_min  | Model: qwen3  | Group: control  | Size: 10 
+Metric: word_min | Model: qwen3 | Group: control | Size: 10
+
      nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
  204.0000000    0.0000000    0.0000000   11.7868671   50.6345520   38.8476849 5832.6051044   28.3135586   28.5912015 
      SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
@@ -98,8 +118,10 @@ Metric: word_min  | Model: qwen3  | Group: control  | Size: 10
   normtest.W   normtest.p 
    0.9914520    0.2743534 
 
+
 ====================
-Metric: word_min  | Model: qwen3  | Group: control  | Size: 20 
+Metric: word_min | Model: qwen3 | Group: control | Size: 20
+
      nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
 2.040000e+02 0.000000e+00 0.000000e+00 1.038101e+01 4.107495e+01 3.069395e+01 4.915329e+03 2.404186e+01 2.409475e+01 
      SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
@@ -107,8 +129,10 @@ Metric: word_min  | Model: qwen3  | Group: control  | Size: 20
   normtest.W   normtest.p 
 9.965055e-01 9.279207e-01 
 
+
 ====================
-Metric: word_min  | Model: qwen3  | Group: control  | Size: 30 
+Metric: word_min | Model: qwen3 | Group: control | Size: 30
+
      nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
  204.0000000    0.0000000    0.0000000   11.6761646   34.2166519   22.5404873 4812.6715031   23.3275080   23.5915270 
      SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
@@ -116,8 +140,10 @@ Metric: word_min  | Model: qwen3  | Group: control  | Size: 30
   normtest.W   normtest.p 
    0.9913322    0.2637765 
 
+
 ====================
-Metric: word_min  | Model: qwen3  | Group: control  | Size: 40 
+Metric: word_min | Model: qwen3 | Group: control | Size: 40
+
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
  203.00000000    0.00000000    0.00000000   12.69869137   37.00776291   24.30907154 4884.65603638   23.64682961 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -125,8 +151,10 @@ Metric: word_min  | Model: qwen3  | Group: control  | Size: 40
      kurtosis      kurt.2SE    normtest.W    normtest.p 
   -0.03934082   -0.05790109    0.99111616    0.24875094 
 
+
 ====================
-Metric: word_min  | Model: qwen3  | Group: control  | Size: 50 
+Metric: word_min | Model: qwen3 | Group: control | Size: 50
+
      nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
  203.0000000    0.0000000    0.0000000   12.5670834   35.1669922   22.5999088 4947.7378149   23.7827625   24.3730927 
      SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
@@ -134,8 +162,10 @@ Metric: word_min  | Model: qwen3  | Group: control  | Size: 50
   normtest.W   normtest.p 
    0.9928251    0.4260323 
 
+
 ====================
-Metric: word_min  | Model: qwen3  | Group: psychosis  | Size: 10 
+Metric: word_min | Model: qwen3 | Group: psychosis | Size: 10
+
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
  4.090000e+02  0.000000e+00  0.000000e+00  1.152812e+01  4.959121e+01  3.806309e+01  1.141961e+04  2.770932e+01 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -143,8 +173,10 @@ Metric: word_min  | Model: qwen3  | Group: psychosis  | Size: 10
      kurtosis      kurt.2SE    normtest.W    normtest.p 
 -4.990334e-01 -1.036290e+00  9.905634e-01  1.013128e-02 
 
+
 ====================
-Metric: word_min  | Model: qwen3  | Group: psychosis  | Size: 20 
+Metric: word_min | Model: qwen3 | Group: psychosis | Size: 20
+
      nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
  408.0000000    0.0000000    0.0000000    9.4918718   39.2245827   29.7327108 9612.8887968   23.4717369   23.5610020 
      SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
@@ -152,8 +184,10 @@ Metric: word_min  | Model: qwen3  | Group: psychosis  | Size: 20
   normtest.W   normtest.p 
    0.9964611    0.5079443 
 
+
 ====================
-Metric: word_min  | Model: qwen3  | Group: psychosis  | Size: 30 
+Metric: word_min | Model: qwen3 | Group: psychosis | Size: 30
+
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
  408.00000000    0.00000000    0.00000000   10.35046482   38.05576706   27.70530224 9286.07904243   22.54356098 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -161,8 +195,10 @@ Metric: word_min  | Model: qwen3  | Group: psychosis  | Size: 30
      kurtosis      kurt.2SE    normtest.W    normtest.p 
   -0.15980953   -0.33145840    0.99090832    0.01296416 
 
+
 ====================
-Metric: word_min  | Model: qwen3  | Group: psychosis  | Size: 40 
+Metric: word_min | Model: qwen3 | Group: psychosis | Size: 40
+
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
  4.070000e+02  0.000000e+00  0.000000e+00  1.052530e+01  3.642284e+01  2.589754e+01  9.173617e+03  2.227874e+01 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -170,8 +206,10 @@ Metric: word_min  | Model: qwen3  | Group: psychosis  | Size: 40
      kurtosis      kurt.2SE    normtest.W    normtest.p 
 -2.426723e-01 -5.027130e-01  9.888163e-01  3.313954e-03 
 
+
 ====================
-Metric: word_min  | Model: qwen3  | Group: psychosis  | Size: 50 
+Metric: word_min | Model: qwen3 | Group: psychosis | Size: 50
+
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
  4.080000e+02  0.000000e+00  0.000000e+00  1.177122e+01  3.635844e+01  2.458721e+01  9.300898e+03  2.229055e+01 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -179,8 +217,10 @@ Metric: word_min  | Model: qwen3  | Group: psychosis  | Size: 50
      kurtosis      kurt.2SE    normtest.W    normtest.p 
 -1.910848e-01 -3.963259e-01  9.823338e-01  6.965515e-05 
 
+
 ====================
-Metric: word_min  | Model: falcon  | Group: control  | Size: 10 
+Metric: word_min | Model: falcon | Group: control | Size: 10
+
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
  2.050000e+02  0.000000e+00  0.000000e+00  6.009025e+00  2.474100e+01  1.873198e+01  2.932629e+03  1.451905e+01 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -188,8 +228,10 @@ Metric: word_min  | Model: falcon  | Group: control  | Size: 10
      kurtosis      kurt.2SE    normtest.W    normtest.p 
 -7.517662e-01 -1.111745e+00  9.729134e-01  5.441561e-04 
 
+
 ====================
-Metric: word_min  | Model: falcon  | Group: control  | Size: 20 
+Metric: word_min | Model: falcon | Group: control | Size: 20
+
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
  205.00000000    0.00000000    0.00000000    5.91064882   21.81875420   15.90810537 2909.71288490   14.63099480 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -197,8 +239,10 @@ Metric: word_min  | Model: falcon  | Group: control  | Size: 20
      kurtosis      kurt.2SE    normtest.W    normtest.p 
   -0.08081321   -0.11951011    0.99082083    0.21952960 
 
+
 ====================
-Metric: word_min  | Model: falcon  | Group: control  | Size: 30 
+Metric: word_min | Model: falcon | Group: control | Size: 30
+
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
  205.00000000    0.00000000    0.00000000    7.77836037   21.91932106   14.14096069 2893.54284859   14.14298248 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -206,8 +250,10 @@ Metric: word_min  | Model: falcon  | Group: control  | Size: 30
      kurtosis      kurt.2SE    normtest.W    normtest.p 
   -0.19734780   -0.29184657    0.99542011    0.79613912 
 
+
 ====================
-Metric: word_min  | Model: falcon  | Group: control  | Size: 40 
+Metric: word_min | Model: falcon | Group: control | Size: 40
+
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
  205.00000000    0.00000000    0.00000000    8.22620106   20.98401070   12.75780964 2927.46836376   14.32363319 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -215,8 +261,10 @@ Metric: word_min  | Model: falcon  | Group: control  | Size: 40
      kurtosis      kurt.2SE    normtest.W    normtest.p 
   -0.10933080   -0.16168318    0.99487558    0.71535683 
 
+
 ====================
-Metric: word_min  | Model: falcon  | Group: control  | Size: 50 
+Metric: word_min | Model: falcon | Group: control | Size: 50
+
      nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
  204.0000000    0.0000000    0.0000000    7.1294303   20.4400482   13.3106179 2909.9596534   14.3701158   14.2645081 
      SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
@@ -224,8 +272,10 @@ Metric: word_min  | Model: falcon  | Group: control  | Size: 50
   normtest.W   normtest.p 
    0.9951310    0.7569574 
 
+
 ====================
-Metric: word_min  | Model: falcon  | Group: psychosis  | Size: 10 
+Metric: word_min | Model: falcon | Group: psychosis | Size: 10
+
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
  4.090000e+02  0.000000e+00  0.000000e+00  6.644654e+00  2.714805e+01  2.050339e+01  6.485954e+03  1.613533e+01 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -233,8 +283,10 @@ Metric: word_min  | Model: falcon  | Group: psychosis  | Size: 10
      kurtosis      kurt.2SE    normtest.W    normtest.p 
 -1.633157e-01 -3.391403e-01  9.887622e-01  3.094986e-03 
 
+
 ====================
-Metric: word_min  | Model: falcon  | Group: psychosis  | Size: 20 
+Metric: word_min | Model: falcon | Group: psychosis | Size: 20
+
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
  408.00000000    0.00000000    0.00000000    6.68732262   23.11051369   16.42319107 5935.11626101   14.35465193 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -242,8 +294,10 @@ Metric: word_min  | Model: falcon  | Group: psychosis  | Size: 20
      kurtosis      kurt.2SE    normtest.W    normtest.p 
   -0.08816245   -0.18285633    0.99626272    0.45620399 
 
+
 ====================
-Metric: word_min  | Model: falcon  | Group: psychosis  | Size: 30 
+Metric: word_min | Model: falcon | Group: psychosis | Size: 30
+
      nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
  408.0000000    0.0000000    0.0000000    6.9003954   21.8786297   14.9782343 5678.0971217   13.8361039   13.9169047 
      SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
@@ -251,8 +305,10 @@ Metric: word_min  | Model: falcon  | Group: psychosis  | Size: 30
   normtest.W   normtest.p 
    0.9950718    0.2210127 
 
+
 ====================
-Metric: word_min  | Model: falcon  | Group: psychosis  | Size: 40 
+Metric: word_min | Model: falcon | Group: psychosis | Size: 40
+
      nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
 4.070000e+02 0.000000e+00 0.000000e+00 7.603991e+00 2.204277e+01 1.443878e+01 5.651343e+03 1.364296e+01 1.388536e+01 
      SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
@@ -260,8 +316,10 @@ Metric: word_min  | Model: falcon  | Group: psychosis  | Size: 40
   normtest.W   normtest.p 
 9.854706e-01 4.215962e-04 
 
+
 ====================
-Metric: word_min  | Model: falcon  | Group: psychosis  | Size: 50 
+Metric: word_min | Model: falcon | Group: psychosis | Size: 50
+
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
  4.090000e+02  0.000000e+00  0.000000e+00  7.145423e+00  2.151135e+01  1.436593e+01  5.702271e+03  1.368437e+01 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -269,8 +327,10 @@ Metric: word_min  | Model: falcon  | Group: psychosis  | Size: 50
      kurtosis      kurt.2SE    normtest.W    normtest.p 
 -6.897215e-02 -1.432271e-01  9.845805e-01  2.405544e-04 
 
+
 ====================
-Metric: word_min  | Model: geitje  | Group: control  | Size: 10 
+Metric: word_min | Model: geitje | Group: control | Size: 10
+
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
  2.040000e+02  0.000000e+00  0.000000e+00  2.634692e+00  6.447621e+00  3.812929e+00  7.937847e+02  3.854574e+00 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -278,8 +338,10 @@ Metric: word_min  | Model: geitje  | Group: control  | Size: 10
      kurtosis      kurt.2SE    normtest.W    normtest.p 
 -7.782578e-01 -1.148177e+00  9.449316e-01  5.036769e-07 
 
+
 ====================
-Metric: word_min  | Model: geitje  | Group: control  | Size: 20 
+Metric: word_min | Model: geitje | Group: control | Size: 20
+
      nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
 203.00000000   0.00000000   0.00000000   2.47463131   6.77954626   4.30491495 940.35891223   4.68872786   4.63230991 
      SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
@@ -287,8 +349,10 @@ Metric: word_min  | Model: geitje  | Group: control  | Size: 20
   normtest.W   normtest.p 
   0.99267842   0.40784618 
 
+
 ====================
-Metric: word_min  | Model: geitje  | Group: control  | Size: 30 
+Metric: word_min | Model: geitje | Group: control | Size: 30
+
      nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
 2.040000e+02 0.000000e+00 0.000000e+00 2.816869e+00 7.295902e+00 4.479033e+00 9.929448e+02 4.766445e+00 4.867376e+00 
      SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
@@ -296,8 +360,10 @@ Metric: word_min  | Model: geitje  | Group: control  | Size: 30
   normtest.W   normtest.p 
 9.810331e-01 7.439454e-03 
 
+
 ====================
-Metric: word_min  | Model: geitje  | Group: control  | Size: 40 
+Metric: word_min | Model: geitje | Group: control | Size: 40
+
      nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
 2.030000e+02 0.000000e+00 0.000000e+00 3.164149e+00 7.241205e+00 4.077056e+00 1.023659e+03 4.953178e+00 5.042656e+00 
      SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
@@ -305,8 +371,10 @@ Metric: word_min  | Model: geitje  | Group: control  | Size: 40
   normtest.W   normtest.p 
 9.881992e-01 9.139736e-02 
 
+
 ====================
-Metric: word_min  | Model: geitje  | Group: control  | Size: 50 
+Metric: word_min | Model: geitje | Group: control | Size: 50
+
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
  2.040000e+02  0.000000e+00  0.000000e+00  3.149032e+00  7.433935e+00  4.284904e+00  1.054439e+03  5.096287e+00 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -314,8 +382,10 @@ Metric: word_min  | Model: geitje  | Group: control  | Size: 50
      kurtosis      kurt.2SE    normtest.W    normtest.p 
 -7.320607e-03 -1.080021e-02  9.948959e-01  7.217124e-01 
 
+
 ====================
-Metric: word_min  | Model: geitje  | Group: psychosis  | Size: 10 
+Metric: word_min | Model: geitje | Group: psychosis | Size: 10
+
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
  4.090000e+02  0.000000e+00  0.000000e+00  2.432977e+00  6.312197e+00  3.879220e+00  1.642800e+03  4.065780e+00 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -323,8 +393,10 @@ Metric: word_min  | Model: geitje  | Group: psychosis  | Size: 10
      kurtosis      kurt.2SE    normtest.W    normtest.p 
 -3.268603e-01 -6.787561e-01  9.807889e-01  2.975630e-05 
 
+
 ====================
-Metric: word_min  | Model: geitje  | Group: psychosis  | Size: 20 
+Metric: word_min | Model: geitje | Group: psychosis | Size: 20
+
      nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
 4.070000e+02 0.000000e+00 0.000000e+00 2.613342e+00 7.334439e+00 4.721097e+00 1.876658e+03 4.588731e+00 4.610953e+00 
      SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
@@ -332,8 +404,10 @@ Metric: word_min  | Model: geitje  | Group: psychosis  | Size: 20
   normtest.W   normtest.p 
 9.933597e-01 7.029801e-02 
 
+
 ====================
-Metric: word_min  | Model: geitje  | Group: psychosis  | Size: 30 
+Metric: word_min | Model: geitje | Group: psychosis | Size: 30
+
      nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
 4.090000e+02 0.000000e+00 0.000000e+00 3.116444e+00 7.655561e+00 4.539118e+00 1.984405e+03 4.795586e+00 4.851845e+00 
      SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
@@ -341,8 +415,10 @@ Metric: word_min  | Model: geitje  | Group: psychosis  | Size: 30
   normtest.W   normtest.p 
 9.763510e-01 3.244819e-06 
 
+
 ====================
-Metric: word_min  | Model: geitje  | Group: psychosis  | Size: 40 
+Metric: word_min | Model: geitje | Group: psychosis | Size: 40
+
      nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
 4.080000e+02 0.000000e+00 0.000000e+00 2.994833e+00 7.713686e+00 4.718853e+00 2.034757e+03 4.880853e+00 4.987150e+00 
      SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
@@ -350,11 +426,15 @@ Metric: word_min  | Model: geitje  | Group: psychosis  | Size: 40
   normtest.W   normtest.p 
 9.791974e-01 1.342801e-05 
 
+
 ====================
-Metric: word_min  | Model: geitje  | Group: psychosis  | Size: 50 
+Metric: word_min | Model: geitje | Group: psychosis | Size: 50
+
      nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
 4.070000e+02 0.000000e+00 0.000000e+00 3.104237e+00 7.919897e+00 4.815660e+00 2.084189e+03 5.026480e+00 5.120858e+00 
      SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
 4.251956e-02 8.358598e-02 7.358206e-01 8.577999e-01 1.675110e-01 5.649227e-01 2.334924e+00 3.215976e-01 6.662124e-01 
   normtest.W   normtest.p 
 9.796826e-01 1.761648e-05 
+
+

@@ -1,6 +1,5 @@
-
 ====================
-Metric: word_min  | Model: falcon  | Group: psychosis  | Size: 10 
+Metric: word_min | Model: falcon | Group: psychosis | Size: 10
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
  4.090000e+02  0.000000e+00  0.000000e+00  6.644654e+00  2.714805e+01  2.050339e+01  6.485954e+03  1.613533e+01 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -8,8 +7,9 @@ Metric: word_min  | Model: falcon  | Group: psychosis  | Size: 10
      kurtosis      kurt.2SE    normtest.W    normtest.p 
 -1.633157e-01 -3.391403e-01  9.887622e-01  3.094986e-03 
 
+
 ====================
-Metric: word_min  | Model: falcon  | Group: psychosis  | Size: 20 
+Metric: word_min | Model: falcon | Group: psychosis | Size: 20
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
  408.00000000    0.00000000    0.00000000    6.68732262   23.11051369   16.42319107 5935.11626101   14.35465193 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
@@ -17,8 +17,9 @@ Metric: word_min  | Model: falcon  | Group: psychosis  | Size: 20
      kurtosis      kurt.2SE    normtest.W    normtest.p 
   -0.08816245   -0.18285633    0.99626272    0.45620399 
 
+
 ====================
-Metric: word_min  | Model: falcon  | Group: psychosis  | Size: 30 
+Metric: word_min | Model: falcon | Group: psychosis | Size: 30
      nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
  408.0000000    0.0000000    0.0000000    6.9003954   21.8786297   14.9782343 5678.0971217   13.8361039   13.9169047 
      SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
@@ -26,8 +27,9 @@ Metric: word_min  | Model: falcon  | Group: psychosis  | Size: 30
   normtest.W   normtest.p 
    0.9950718    0.2210127 
 
+
 ====================
-Metric: word_min  | Model: falcon  | Group: psychosis  | Size: 40 
+Metric: word_min | Model: falcon | Group: psychosis | Size: 40
      nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
 4.070000e+02 0.000000e+00 0.000000e+00 7.603991e+00 2.204277e+01 1.443878e+01 5.651343e+03 1.364296e+01 1.388536e+01 
      SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
@@ -35,11 +37,14 @@ Metric: word_min  | Model: falcon  | Group: psychosis  | Size: 40
   normtest.W   normtest.p 
 9.854706e-01 4.215962e-04 
 
+
 ====================
-Metric: word_min  | Model: falcon  | Group: psychosis  | Size: 50 
+Metric: word_min | Model: falcon | Group: psychosis | Size: 50
       nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
  4.090000e+02  0.000000e+00  0.000000e+00  7.145423e+00  2.151135e+01  1.436593e+01  5.702271e+03  1.368437e+01 
          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
  1.394198e+01  1.331996e-01  2.618432e-01  7.256536e+00  2.693796e+00  1.932147e-01  4.132419e-01  1.712161e+00 
      kurtosis      kurt.2SE    normtest.W    normtest.p 
 -6.897215e-02 -1.432271e-01  9.845805e-01  2.405544e-04 
+
+

@@ -1,0 +1,50 @@
+====================
+Metric: min_perp | Model: gpt2 | Group: control | Size: 10
+      nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
+  205.0000000     0.0000000     0.0000000    14.7230635   166.5996246   151.8765612 17581.8018484    82.3468475 
+         mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
+   85.7648871     2.0743435     4.0899020   882.0947281    29.7000796     0.3462965     0.1924126     0.5664339 
+     kurtosis      kurt.2SE    normtest.W    normtest.p 
+   -0.3428154    -0.5069704     0.9933831     0.4921239 
+
+
+====================
+Metric: min_perp | Model: gpt2 | Group: control | Size: 20
+     nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
+2.050000e+02 0.000000e+00 0.000000e+00 2.226493e+01 1.885938e+02 1.663288e+02 1.819489e+04 8.863050e+01 8.875558e+01 
+     SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
+1.730145e+00 3.411259e+00 6.136472e+02 2.477190e+01 2.791025e-01 1.271962e-01 3.744465e-01 7.858901e-01 1.162209e+00 
+  normtest.W   normtest.p 
+9.898871e-01 1.593938e-01 
+
+
+====================
+Metric: min_perp | Model: gpt2 | Group: control | Size: 30
+      nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
+ 2.050000e+02  0.000000e+00  0.000000e+00  3.148875e+01  1.725799e+02  1.410911e+02  1.855166e+04  9.147220e+01 
+         mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
+ 9.049592e+01  1.573399e+00  3.102208e+00  5.074945e+02  2.252764e+01  2.489354e-01 -2.016610e-03 -5.936596e-03 
+     kurtosis      kurt.2SE    normtest.W    normtest.p 
+ 1.256757e-01  1.858547e-01  9.908389e-01  2.208771e-01 
+
+
+====================
+Metric: min_perp | Model: gpt2 | Group: control | Size: 40
+     nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
+2.050000e+02 0.000000e+00 0.000000e+00 3.109798e+01 1.662263e+02 1.351284e+02 1.878730e+04 9.176901e+01 9.164539e+01 
+     SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
+1.477827e+00 2.913774e+00 4.477144e+02 2.115926e+01 2.308819e-01 3.459736e-03 1.018494e-02 1.984465e-01 2.934714e-01 
+  normtest.W   normtest.p 
+9.951908e-01 7.628120e-01 
+
+
+====================
+Metric: min_perp | Model: gpt2 | Group: control | Size: 50
+      nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
+ 2.050000e+02  0.000000e+00  0.000000e+00  3.482143e+01  1.601093e+02  1.252879e+02  1.898339e+04  9.250182e+01 
+         mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
+ 9.260192e+01  1.372777e+00  2.706650e+00  3.863258e+02  1.965517e+01  2.122545e-01 -3.751795e-02 -1.104472e-01 
+     kurtosis      kurt.2SE    normtest.W    normtest.p 
+ 4.263199e-01  6.304606e-01  9.938104e-01  5.533090e-01 
+
+
