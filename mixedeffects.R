@@ -345,7 +345,7 @@ for (metric in metrics) {
     filename <- paste0(output_dir, "totalchange_", metric, "_", m, ".png")
     ggsave(filename, plot = total_change_plot, width = 8, height = 6, dpi = 300)
     })
-  }
+  } 
 }
 
 sink()
