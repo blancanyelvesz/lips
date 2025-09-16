@@ -40,7 +40,6 @@ for (m in models) {
       })
     })
     
-    # assign combined dataframe (all metrics included) to global env
     assign(paste(m, "combined", sep = "_"), combined_df, envir = .GlobalEnv)
   })
 }
@@ -75,8 +74,7 @@ for (metric in metrics) {
 }
 
 
-# plot predictions
-# loop over metrics and models
+# plot predictions with denser y-axis ticks
 for (metric in metrics) {
   for (m in models) {
     local({
@@ -96,20 +94,26 @@ for (metric in metrics) {
       
       metric_label <- metric_labels[metric]
       
-      # build the plot
       predicted_plot <- ggplot(emm_df, aes(x = size, y = emmean, color = group, group = group)) +
         geom_line(size = 1.5) +
         geom_point(size = 3, shape = 21, fill = "white") +
         geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL), width = 0.15, size = 0.8) +
         scale_color_manual(values = c("control" = "#1A85FF", "psychosis" = "#D41B55")) +
+        scale_y_continuous(
+          breaks = scales::pretty_breaks(n = 8)  # <- more ticks (~8)
+        ) +
         theme_minimal(base_size = 14) +
-        theme(legend.position = "top",
-              panel.grid.major = element_line(color = "grey85"),
-              panel.grid.minor = element_blank()) +
-        labs(title = paste0("Predicted ", metric_label, " by group and window size (", m, ")"),
-             x = "Window Size",
-             y = paste0("Predicted ", metric_label),
-             color = "Group")
+        theme(
+          legend.position = "right",
+          panel.grid.major = element_line(color = "grey85"),
+          panel.grid.minor = element_line(color = "grey90", linetype = "dotted")  # <- add faint minor grid
+        ) +
+        labs(
+          title = paste0("Predicted ", metric_label, " by group and window size (", toupper(m), ")"),
+          x = "Window Size",
+          y = paste0("Predicted ", metric_label),
+          color = "Group"
+        )
       
       print(predicted_plot)
       ggsave(filename = paste0(output_dir, "predicted_", m, "_", metric, ".png"),
@@ -117,6 +121,7 @@ for (metric in metrics) {
     })
   }
 }
+
 
 
 # plot psychosis-control differences per size + significance
@@ -169,17 +174,16 @@ for (metric in metrics) {
         geom_col(fill = "#D41B55", alpha = 0.8) +
         geom_text(aes(label = paste0(round(diff, 2), stars)), 
                   vjust = -0.2) +
-        geom_hline(yintercept = 0, linetype = "dashed", color = "gray50") +
+        geom_hline(yintercept = 0, linetype = "dotted", linewidth = 1) +
         theme_minimal(base_size = 14) +
-        labs(title = paste("Group difference in", metric_label, "per window size (", m, ")"),
+        labs(title = paste0("Group difference in ", metric_label, "per window size (", toupper(m), ")"),
              x = "Window size",
              y = "Difference (psychosis - control)")
       
       print(diffsize_plot)
-      
-      # save plot
-      filename <- paste0(output_dir, "diffsize_", metric, "_", m, ".png")
-      ggsave(filename, plot = diffsize_plot, width = 10, height = 6, dpi = 300)
+    
+      ggsave(filename = paste0(output_dir, "diffsize_", metric, "_", m, ".png"), 
+             plot = diffsize_plot, width = 10, height = 6, dpi = 300)
     })
   }
 }
@@ -267,17 +271,16 @@ for (metric in metrics) {
         geom_col(fill = "#D41B55", alpha = 0.8) +
         geom_text(aes(label = paste0(round(diff, 2), stars)), 
                   vjust = -0.2) +
-        geom_hline(yintercept = 0, linetype = "dashed", color = "gray50") +
+        geom_hline(yintercept = 0, linetype = "dotted", linewidth = 1) +
         theme_minimal(base_size = 14) +
-        labs(title = paste("Group difference in stepwise change for", metric_label, "(", m, ")"),
+        labs(title = paste0("Group difference in stepwise change for ", metric_label, " (", toupper(m), ")"),
              x = "Step (window size)",
              y = "Difference (psychosis - control)")
       
       print(diffsteps_plot)
       
-      # save plot
-      filename <- paste0(output_dir, "diffsteps_", metric, "_", m, ".png")
-      ggsave(filename, plot = diffsteps_plot, width = 10, height = 6, dpi = 300)
+      ggsave(filename = paste0(output_dir, "diffsteps_", metric, "_", m, ".png"), 
+             plot = diffsteps_plot, width = 10, height = 6, dpi = 300)
     })
   }
 }
@@ -290,7 +293,6 @@ sink(paste0(output_dir, "total_change_results.txt"))
 cat("Total Difference Results\n")
 cat("===================================\n\n")
 
-# plot total change from size 10 to size 50 per group with significance
 for (metric in metrics) {
   for (m in models) {
     local({
@@ -331,21 +333,20 @@ for (metric in metrics) {
       geom_col(alpha = 0.8) +
       geom_text(aes(label = paste0(round(total_change, 2), stars)), 
                 vjust = -0.2) +
-      geom_hline(yintercept = 0, linetype = "dashed", color = "gray70") +
+      geom_hline(yintercept = 0, linetype = "dotted", linewidth = 1) +
       theme_minimal(base_size = 14) +
       scale_fill_manual(values = c("control" = "#1A85FF", "psychosis" = "#D41B55")) +
-      labs(title = paste("Total change (size 10 → size 50) in", metric_label, "(", m, ")"),
+      labs(title = paste0("Total change (size 10 → size 50) in ", metric_label, " (", toupper(m), ")"),
            x = "Group",
-           y = paste0("Total difference in", metric_label)) +
+           y = paste("Total difference in", metric_label)) +
       theme(legend.position = "none")
     
     print(total_change_plot)
     
-    # save
-    filename <- paste0(output_dir, "totalchange_", metric, "_", m, ".png")
-    ggsave(filename, plot = total_change_plot, width = 8, height = 6, dpi = 300)
+    ggsave(filename = paste0(output_dir, "totalchange_", metric, "_", m, ".png"), 
+           plot = total_change_plot, width = 8, height = 6, dpi = 300)
     })
-  } 
+  }
 }
 
 sink()
