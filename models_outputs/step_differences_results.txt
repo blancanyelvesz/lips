@@ -1,0 +1,99 @@
+Step-wise Group Differences Results
+===================================
+
+Metric: mean perp. | Model: gpt2 
+Step 10 → 20 : Difference = -10.301 , p = 0.0014 ** 
+Step 20 → 30 : Difference = -2.802 , p = 0.3847  
+Step 30 → 40 : Difference = -1.204 , p = 0.7087  
+Step 40 → 50 : Difference = -0.424 , p = 0.8954  
+-------------------------------------------------- 
+Metric: mean perp. | Model: qwen3 
+Step 10 → 20 : Difference = 13.745 , p = 0 *** 
+Step 20 → 30 : Difference = 2.005 , p = 0.4385  
+Step 30 → 40 : Difference = 0.689 , p = 0.7897  
+Step 40 → 50 : Difference = 0.434 , p = 0.8665  
+-------------------------------------------------- 
+Metric: mean perp. | Model: falcon 
+Step 10 → 20 : Difference = 1.012 , p = 0.1688  
+Step 20 → 30 : Difference = 0.148 , p = 0.8398  
+Step 30 → 40 : Difference = 0.007 , p = 0.9928  
+Step 40 → 50 : Difference = -0.001 , p = 0.9992  
+-------------------------------------------------- 
+Metric: mean perp. | Model: geitje 
+Step 10 → 20 : Difference = -0.206 , p = 0.0588  
+Step 20 → 30 : Difference = -0.026 , p = 0.8085  
+Step 30 → 40 : Difference = -0.007 , p = 0.9473  
+Step 40 → 50 : Difference = 0.012 , p = 0.9114  
+-------------------------------------------------- 
+Metric: SD perp. | Model: gpt2 
+Step 10 → 20 : Difference = -10.12 , p = 0.1185  
+Step 20 → 30 : Difference = -1.685 , p = 0.7943  
+Step 30 → 40 : Difference = -0.86 , p = 0.894  
+Step 40 → 50 : Difference = -0.529 , p = 0.9346  
+-------------------------------------------------- 
+Metric: SD perp. | Model: qwen3 
+Step 10 → 20 : Difference = 23.856 , p = 0.0028 ** 
+Step 20 → 30 : Difference = 1.553 , p = 0.8447  
+Step 30 → 40 : Difference = 0.565 , p = 0.9432  
+Step 40 → 50 : Difference = 0.409 , p = 0.9589  
+-------------------------------------------------- 
+Metric: SD perp. | Model: falcon 
+Step 10 → 20 : Difference = 5.375 , p = 0.0014 ** 
+Step 20 → 30 : Difference = 0.561 , p = 0.7389  
+Step 30 → 40 : Difference = 0.208 , p = 0.902  
+Step 40 → 50 : Difference = 0.099 , p = 0.9532  
+-------------------------------------------------- 
+Metric: SD perp. | Model: geitje 
+Step 10 → 20 : Difference = 0.149 , p = 0.6071  
+Step 20 → 30 : Difference = -0.013 , p = 0.9631  
+Step 30 → 40 : Difference = -0.008 , p = 0.9771  
+Step 40 → 50 : Difference = 0.019 , p = 0.9485  
+-------------------------------------------------- 
+Metric: min perp. | Model: gpt2 
+Step 10 → 20 : Difference = -3.416 , p = 0.0632  
+Step 20 → 30 : Difference = 0.545 , p = 0.767  
+Step 30 → 40 : Difference = 0.026 , p = 0.9885  
+Step 40 → 50 : Difference = -0.331 , p = 0.857  
+-------------------------------------------------- 
+Metric: min perp. | Model: qwen3 
+Step 10 → 20 : Difference = 0.161 , p = 0.722  
+Step 20 → 30 : Difference = -0.291 , p = 0.5207  
+Step 30 → 40 : Difference = -0.648 , p = 0.1533  
+Step 40 → 50 : Difference = -0.092 , p = 0.839  
+-------------------------------------------------- 
+Metric: min perp. | Model: falcon 
+Step 10 → 20 : Difference = -1.184 , p = 0 *** 
+Step 20 → 30 : Difference = -0.549 , p = 0.0339 * 
+Step 30 → 40 : Difference = -0.193 , p = 0.4559  
+Step 40 → 50 : Difference = 0.032 , p = 0.9013  
+-------------------------------------------------- 
+Metric: min perp. | Model: geitje 
+Step 10 → 20 : Difference = -0.154 , p = 0.0159 * 
+Step 20 → 30 : Difference = 0.008 , p = 0.8942  
+Step 30 → 40 : Difference = -0.043 , p = 0.504  
+Step 40 → 50 : Difference = 0.011 , p = 0.8573  
+-------------------------------------------------- 
+Metric: max perp. | Model: gpt2 
+Step 10 → 20 : Difference = 69.056 , p = 0.5184  
+Step 20 → 30 : Difference = 14.017 , p = 0.8955  
+Step 30 → 40 : Difference = 0.781 , p = 0.9942  
+Step 40 → 50 : Difference = -1.754 , p = 0.9868  
+-------------------------------------------------- 
+Metric: max perp. | Model: qwen3 
+Step 10 → 20 : Difference = 543.088 , p = 2e-04 *** 
+Step 20 → 30 : Difference = 39.198 , p = 0.7869  
+Step 30 → 40 : Difference = 0.219 , p = 0.9988  
+Step 40 → 50 : Difference = 5.417 , p = 0.9701  
+-------------------------------------------------- 
+Metric: max perp. | Model: falcon 
+Step 10 → 20 : Difference = 170.076 , p = 0 *** 
+Step 20 → 30 : Difference = 10.99 , p = 0.6905  
+Step 30 → 40 : Difference = 5.377 , p = 0.8457  
+Step 40 → 50 : Difference = 1.566 , p = 0.9549  
+-------------------------------------------------- 
+Metric: max perp. | Model: geitje 
+Step 10 → 20 : Difference = 14.144 , p = 0.001 *** 
+Step 20 → 30 : Difference = 1.519 , p = 0.7229  
+Step 30 → 40 : Difference = -0.088 , p = 0.9835  
+Step 40 → 50 : Difference = 0.639 , p = 0.881  
+-------------------------------------------------- 

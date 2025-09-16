@@ -1,0 +1,116 @@
+Size-wise Group Differences Results
+===================================
+
+Metric: mean perp. | Model: gpt2 
+Size 10 : Diff = 10.36 , p = 0.0115 * 
+Size 20 : Diff = 0.058 , p = 0.9887  
+Size 30 : Diff = -2.744 , p = 0.5028  
+Size 40 : Diff = -3.948 , p = 0.335  
+Size 50 : Diff = -4.372 , p = 0.2857  
+-------------------------------------------------- 
+[1] "C:/Users/blanc/Documents"
+3 
+Size 10 : Diff = -20.923 , p = 0 *** 
+Size 20 : Diff = -7.178 , p = 0.0019 ** 
+Size 30 : Diff = -5.173 , p = 0.025 * 
+Size 40 : Diff = -4.484 , p = 0.0517  
+Size 50 : Diff = -4.05 , p = 0.0788  
+-------------------------------------------------- 
+Metric: mean perp. | Model: falcon 
+Size 10 : Diff = -3.143 , p = 1e-04 *** 
+Size 20 : Diff = -2.13 , p = 0.0097 ** 
+Size 30 : Diff = -1.982 , p = 0.0161 * 
+Size 40 : Diff = -1.975 , p = 0.0166 * 
+Size 50 : Diff = -1.976 , p = 0.0165 * 
+-------------------------------------------------- 
+Metric: mean perp. | Model: geitje 
+Size 10 : Diff = 0.066 , p = 0.7366  
+Size 20 : Diff = -0.14 , p = 0.4723  
+Size 30 : Diff = -0.167 , p = 0.3931  
+Size 40 : Diff = -0.174 , p = 0.373  
+Size 50 : Diff = -0.162 , p = 0.4071  
+-------------------------------------------------- 
+Metric: SD perp. | Model: gpt2 
+Size 10 : Diff = 14.811 , p = 0.0059 ** 
+Size 20 : Diff = 4.692 , p = 0.381  
+Size 30 : Diff = 3.007 , p = 0.5745  
+Size 40 : Diff = 2.147 , p = 0.6878  
+Size 50 : Diff = 1.618 , p = 0.7622  
+-------------------------------------------------- 
+Metric: SD perp. | Model: qwen3 
+Size 10 : Diff = -27.515 , p = 0 *** 
+Size 20 : Diff = -3.659 , p = 0.5343  
+Size 30 : Diff = -2.106 , p = 0.72  
+Size 40 : Diff = -1.541 , p = 0.7937  
+Size 50 : Diff = -1.132 , p = 0.8476  
+-------------------------------------------------- 
+Metric: SD perp. | Model: falcon 
+Size 10 : Diff = -6.991 , p = 0 *** 
+Size 20 : Diff = -1.616 , p = 0.2278  
+Size 30 : Diff = -1.054 , p = 0.4319  
+Size 40 : Diff = -0.847 , p = 0.528  
+Size 50 : Diff = -0.748 , p = 0.5768  
+-------------------------------------------------- 
+Metric: SD perp. | Model: geitje 
+Size 10 : Diff = -0.235 , p = 0.3726  
+Size 20 : Diff = -0.086 , p = 0.7435  
+Size 30 : Diff = -0.1 , p = 0.705  
+Size 40 : Diff = -0.108 , p = 0.6824  
+Size 50 : Diff = -0.089 , p = 0.7356  
+-------------------------------------------------- 
+Metric: min perp. | Model: gpt2 
+Size 10 : Diff = 1.369 , p = 0.4929  
+Size 20 : Diff = -2.046 , p = 0.3061  
+Size 30 : Diff = -1.502 , p = 0.4526  
+Size 40 : Diff = -1.475 , p = 0.4606  
+Size 50 : Diff = -1.806 , p = 0.3663  
+-------------------------------------------------- 
+Metric: min perp. | Model: qwen3 
+Size 10 : Diff = -0.675 , p = 0.1525  
+Size 20 : Diff = -0.514 , p = 0.2762  
+Size 30 : Diff = -0.805 , p = 0.0881  
+Size 40 : Diff = -1.453 , p = 0.0021 ** 
+Size 50 : Diff = -1.546 , p = 0.0011 ** 
+-------------------------------------------------- 
+Metric: min perp. | Model: falcon 
+Size 10 : Diff = 1.559 , p = 0 *** 
+Size 20 : Diff = 0.375 , p = 0.1562  
+Size 30 : Diff = -0.174 , p = 0.51  
+Size 40 : Diff = -0.367 , p = 0.1651  
+Size 50 : Diff = -0.335 , p = 0.2054  
+-------------------------------------------------- 
+Metric: min perp. | Model: geitje 
+Size 10 : Diff = 0.128 , p = 0.072  
+Size 20 : Diff = -0.026 , p = 0.717  
+Size 30 : Diff = -0.017 , p = 0.8074  
+Size 40 : Diff = -0.06 , p = 0.3999  
+Size 50 : Diff = -0.049 , p = 0.4958  
+-------------------------------------------------- 
+Metric: max perp. | Model: gpt2 
+Size 10 : Diff = -93.217 , p = 0.2383  
+Size 20 : Diff = -24.161 , p = 0.7587  
+Size 30 : Diff = -10.143 , p = 0.8975  
+Size 40 : Diff = -9.363 , p = 0.905  
+Size 50 : Diff = -11.117 , p = 0.8875  
+-------------------------------------------------- 
+Metric: max perp. | Model: qwen3 
+Size 10 : Diff = -604.093 , p = 0 *** 
+Size 20 : Diff = -61.005 , p = 0.5582  
+Size 30 : Diff = -21.808 , p = 0.8337  
+Size 40 : Diff = -21.589 , p = 0.8346  
+Size 50 : Diff = -16.172 , p = 0.876  
+-------------------------------------------------- 
+Metric: max perp. | Model: falcon 
+Size 10 : Diff = -194.36 , p = 0 *** 
+Size 20 : Diff = -24.285 , p = 0.2338  
+Size 30 : Diff = -13.295 , p = 0.5137  
+Size 40 : Diff = -7.918 , p = 0.6985  
+Size 50 : Diff = -6.352 , p = 0.756  
+-------------------------------------------------- 
+Metric: max perp. | Model: geitje 
+Size 10 : Diff = -17.352 , p = 0 *** 
+Size 20 : Diff = -3.208 , p = 0.3324  
+Size 30 : Diff = -1.688 , p = 0.6101  
+Size 40 : Diff = -1.777 , p = 0.5897  
+Size 50 : Diff = -1.138 , p = 0.7302  
+-------------------------------------------------- 

@@ -1,0 +1,67 @@
+Total Difference Results
+===================================
+
+Metric: mean perp. | Model: gpt2 
+Group control : Change = -438.618 , p = 0e+00 ***
+Group psychosis : Change = -453.349 , p = 0e+00 *** 
+===================================================
+Metric: mean perp. | Model: qwen3 
+Group control : Change = -290.424 , p = 0e+00 ***
+Group psychosis : Change = -273.55 , p = 0e+00 *** 
+===================================================
+Metric: mean perp. | Model: falcon 
+Group control : Change = -92.863 , p = 0e+00 ***
+Group psychosis : Change = -91.696 , p = 0e+00 *** 
+===================================================
+Metric: mean perp. | Model: geitje 
+Group control : Change = -11.416 , p = 0e+00 ***
+Group psychosis : Change = -11.644 , p = 0e+00 *** 
+===================================================
+Metric: SD perp. | Model: gpt2 
+Group control : Change = -431.477 , p = 0e+00 ***
+Group psychosis : Change = -444.67 , p = 0e+00 *** 
+===================================================
+Metric: SD perp. | Model: qwen3 
+Group control : Change = -415.012 , p = 0e+00 ***
+Group psychosis : Change = -388.629 , p = 0e+00 *** 
+===================================================
+Metric: SD perp. | Model: falcon 
+Group control : Change = -108.342 , p = 0e+00 ***
+Group psychosis : Change = -102.099 , p = 0e+00 *** 
+===================================================
+Metric: SD perp. | Model: geitje 
+Group control : Change = -14.59 , p = 0e+00 ***
+Group psychosis : Change = -14.444 , p = 0e+00 *** 
+===================================================
+Metric: min perp. | Model: gpt2 
+Group control : Change = 6.654 , p = 9.70e-06 ***
+Group psychosis : Change = 3.478 , p = 1.05e-03 ** 
+===================================================
+Metric: min perp. | Model: qwen3 
+Group control : Change = -4.241 , p = 1.52e-29 ***
+Group psychosis : Change = -5.111 , p = 4.13e-79 *** 
+===================================================
+Metric: min perp. | Model: falcon 
+Group control : Change = -0.021 , p = 9.22e-01 
+Group psychosis : Change = -1.915 , p = 2.09e-36 *** 
+===================================================
+Metric: min perp. | Model: geitje 
+Group control : Change = 1.284 , p = 5.59e-120 ***
+Group psychosis : Change = 1.107 , p = 3.78e-169 *** 
+===================================================
+Metric: max perp. | Model: gpt2 
+Group control : Change = -4176.727 , p = 0e+00 ***
+Group psychosis : Change = -4094.627 , p = 0e+00 *** 
+===================================================
+Metric: max perp. | Model: qwen3 
+Group control : Change = -4987.139 , p = 3.64e-290 ***
+Group psychosis : Change = -4399.217 , p =  0.00e+00 *** 
+===================================================
+Metric: max perp. | Model: falcon 
+Group control : Change = -1193.348 , p = 0e+00 ***
+Group psychosis : Change = -1005.34 , p = 0e+00 *** 
+===================================================
+Metric: max perp. | Model: geitje 
+Group control : Change = -150.852 , p = 3.57e-301 ***
+Group psychosis : Change = -134.638 , p =  0.00e+00 *** 
+===================================================
