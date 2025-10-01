@@ -22,7 +22,7 @@ import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from docopt import docopt
 
-args = docopt(__doc__, version = '1.0 - GPT2')
+args = docopt(__doc__, version = '1.4.2 - GEITje Optimized')
 method = args['--method']
 folder_path = args['--folder']
 batch_size = 10
