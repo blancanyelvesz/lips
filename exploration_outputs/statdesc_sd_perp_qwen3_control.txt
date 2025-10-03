@@ -1,50 +1,50 @@
 ====================
 Metric: sd_perp | Model: qwen3 | Group: control | Size: 10
-     nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
-2.050000e+02 0.000000e+00 0.000000e+00 2.148789e+02 1.413271e+03 1.198392e+03 9.395849e+04 4.221365e+02 4.583341e+02 
-     SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
-1.329344e+01 2.621016e+01 3.622670e+04 1.903331e+02 4.152716e-01 2.467310e+00 7.263391e+00 7.984949e+00 1.180849e+01 
-  normtest.W   normtest.p 
-7.700471e-01 1.264183e-16 
+     nbr.val     nbr.null       nbr.na          min          max        range          sum 
+2.050000e+02 0.000000e+00 0.000000e+00 2.148789e+02 1.413271e+03 1.198392e+03 9.395849e+04 
+      median         mean      SE.mean CI.mean.0.95          var      std.dev     coef.var 
+4.221365e+02 4.583341e+02 1.329344e+01 2.621016e+01 3.622670e+04 1.903331e+02 4.152716e-01 
+    skewness     skew.2SE     kurtosis     kurt.2SE   normtest.W   normtest.p 
+2.467310e+00 7.263391e+00 7.984949e+00 1.180849e+01 7.700471e-01 1.264183e-16 
 
 
 ====================
 Metric: sd_perp | Model: qwen3 | Group: control | Size: 20
-     nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
-2.050000e+02 0.000000e+00 0.000000e+00 4.565868e+01 1.995680e+02 1.539093e+02 1.575504e+04 7.355371e+01 7.685385e+01 
-     SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
-1.390666e+00 2.741921e+00 3.964600e+02 1.991130e+01 2.590801e-01 2.202121e+00 6.482712e+00 9.409858e+00 1.391571e+01 
-  normtest.W   normtest.p 
-8.481619e-01 2.281024e-13 
+     nbr.val     nbr.null       nbr.na          min          max        range          sum 
+2.050000e+02 0.000000e+00 0.000000e+00 4.565868e+01 1.995680e+02 1.539093e+02 1.575504e+04 
+      median         mean      SE.mean CI.mean.0.95          var      std.dev     coef.var 
+7.355371e+01 7.685385e+01 1.390666e+00 2.741921e+00 3.964600e+02 1.991130e+01 2.590801e-01 
+    skewness     skew.2SE     kurtosis     kurt.2SE   normtest.W   normtest.p 
+2.202121e+00 6.482712e+00 9.409858e+00 1.391571e+01 8.481619e-01 2.281024e-13 
 
 
 ====================
 Metric: sd_perp | Model: qwen3 | Group: control | Size: 30
-     nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
-2.050000e+02 0.000000e+00 0.000000e+00 2.156178e+01 7.800102e+01 5.643925e+01 7.984415e+03 3.788316e+01 3.894837e+01 
-     SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
-6.401084e-01 1.262077e+00 8.399644e+01 9.164957e+00 2.353104e-01 1.106181e+00 3.256431e+00 2.057692e+00 3.043005e+00 
-  normtest.W   normtest.p 
-9.385508e-01 1.276379e-07 
+     nbr.val     nbr.null       nbr.na          min          max        range          sum 
+2.050000e+02 0.000000e+00 0.000000e+00 2.156178e+01 7.800102e+01 5.643925e+01 7.984415e+03 
+      median         mean      SE.mean CI.mean.0.95          var      std.dev     coef.var 
+3.788316e+01 3.894837e+01 6.401084e-01 1.262077e+00 8.399644e+01 9.164957e+00 2.353104e-01 
+    skewness     skew.2SE     kurtosis     kurt.2SE   normtest.W   normtest.p 
+1.106181e+00 3.256431e+00 2.057692e+00 3.043005e+00 9.385508e-01 1.276379e-07 
 
 
 ====================
 Metric: sd_perp | Model: qwen3 | Group: control | Size: 40
-     nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
-2.050000e+02 0.000000e+00 0.000000e+00 1.360034e+01 4.954047e+01 3.594014e+01 5.378233e+03 2.536339e+01 2.623528e+01 
-     SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
-4.421731e-01 8.718154e-01 4.008099e+01 6.330955e+00 2.413145e-01 1.042156e+00 3.067950e+00 1.453689e+00 2.149780e+00 
-  normtest.W   normtest.p 
-9.397881e-01 1.637193e-07 
+     nbr.val     nbr.null       nbr.na          min          max        range          sum 
+2.050000e+02 0.000000e+00 0.000000e+00 1.360034e+01 4.954047e+01 3.594014e+01 5.378233e+03 
+      median         mean      SE.mean CI.mean.0.95          var      std.dev     coef.var 
+2.536339e+01 2.623528e+01 4.421731e-01 8.718154e-01 4.008099e+01 6.330955e+00 2.413145e-01 
+    skewness     skew.2SE     kurtosis     kurt.2SE   normtest.W   normtest.p 
+1.042156e+00 3.067950e+00 1.453689e+00 2.149780e+00 9.397881e-01 1.637193e-07 
 
 
 ====================
 Metric: sd_perp | Model: qwen3 | Group: control | Size: 50
-     nbr.val     nbr.null       nbr.na          min          max        range          sum       median         mean 
-2.050000e+02 0.000000e+00 0.000000e+00 1.012014e+01 4.031472e+01 3.019458e+01 4.081843e+03 1.898559e+01 1.991143e+01 
-     SE.mean CI.mean.0.95          var      std.dev     coef.var     skewness     skew.2SE     kurtosis     kurt.2SE 
-3.550457e-01 7.000297e-01 2.584177e+01 5.083480e+00 2.553046e-01 1.233992e+00 3.632688e+00 2.244012e+00 3.318544e+00 
-  normtest.W   normtest.p 
-9.229055e-01 6.881082e-09 
+     nbr.val     nbr.null       nbr.na          min          max        range          sum 
+2.050000e+02 0.000000e+00 0.000000e+00 1.012014e+01 4.031472e+01 3.019458e+01 4.081843e+03 
+      median         mean      SE.mean CI.mean.0.95          var      std.dev     coef.var 
+1.898559e+01 1.991143e+01 3.550457e-01 7.000297e-01 2.584177e+01 5.083480e+00 2.553046e-01 
+    skewness     skew.2SE     kurtosis     kurt.2SE   normtest.W   normtest.p 
+1.233992e+00 3.632688e+00 2.244012e+00 3.318544e+00 9.229055e-01 6.881082e-09 
 
 

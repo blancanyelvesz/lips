@@ -1,50 +1,50 @@
 ====================
 Metric: min_perp | Model: gpt2 | Group: psychosis | Size: 10
-      nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
- 4.090000e+02  0.000000e+00  0.000000e+00  3.205894e+01  1.591057e+02  1.270467e+02  3.558229e+04  8.607092e+01 
-         mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
- 8.699827e+01  1.279630e+00  2.515491e+00  6.697185e+02  2.587892e+01  2.974648e-01  2.158843e-01  8.944610e-01 
-     kurtosis      kurt.2SE    normtest.W    normtest.p 
--3.151409e-01 -6.544196e-01  9.915982e-01  2.043704e-02 
+      nbr.val      nbr.null        nbr.na           min           max         range           sum 
+ 4.090000e+02  0.000000e+00  0.000000e+00  3.205894e+01  1.591057e+02  1.270467e+02  3.558229e+04 
+       median          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var 
+ 8.607092e+01  8.699827e+01  1.279630e+00  2.515491e+00  6.697185e+02  2.587892e+01  2.974648e-01 
+     skewness      skew.2SE      kurtosis      kurt.2SE    normtest.W    normtest.p 
+ 2.158843e-01  8.944610e-01 -3.151409e-01 -6.544196e-01  9.915982e-01  2.043704e-02 
 
 
 ====================
 Metric: min_perp | Model: gpt2 | Group: psychosis | Size: 20
-      nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
- 4.100000e+02  0.000000e+00  0.000000e+00  1.975068e+01  1.464911e+02  1.267404e+02  3.537306e+04  8.560957e+01 
-         mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
- 8.627574e+01  1.213171e+00  2.384828e+00  6.034310e+02  2.456483e+01  2.847247e-01  4.708969e-02  1.953407e-01 
-     kurtosis      kurt.2SE    normtest.W    normtest.p 
--3.211356e-01 -6.676733e-01  9.956735e-01  3.194616e-01 
+      nbr.val      nbr.null        nbr.na           min           max         range           sum 
+ 4.100000e+02  0.000000e+00  0.000000e+00  1.975068e+01  1.464911e+02  1.267404e+02  3.537306e+04 
+       median          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var 
+ 8.560957e+01  8.627574e+01  1.213171e+00  2.384828e+00  6.034310e+02  2.456483e+01  2.847247e-01 
+     skewness      skew.2SE      kurtosis      kurt.2SE    normtest.W    normtest.p 
+ 4.708969e-02  1.953407e-01 -3.211356e-01 -6.676733e-01  9.956735e-01  3.194616e-01 
 
 
 ====================
 Metric: min_perp | Model: gpt2 | Group: psychosis | Size: 30
-      nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
- 4.100000e+02  0.000000e+00  0.000000e+00  1.998017e+01  1.565666e+02  1.365865e+02  3.635906e+04  8.842659e+01 
-         mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
- 8.868064e+01  1.160487e+00  2.281263e+00  5.521589e+02  2.349806e+01  2.649740e-01 -3.103177e-02 -1.287281e-01 
-     kurtosis      kurt.2SE    normtest.W    normtest.p 
--5.502537e-02 -1.144033e-01  9.983133e-01  9.620303e-01 
+      nbr.val      nbr.null        nbr.na           min           max         range           sum 
+ 4.100000e+02  0.000000e+00  0.000000e+00  1.998017e+01  1.565666e+02  1.365865e+02  3.635906e+04 
+       median          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var 
+ 8.842659e+01  8.868064e+01  1.160487e+00  2.281263e+00  5.521589e+02  2.349806e+01  2.649740e-01 
+     skewness      skew.2SE      kurtosis      kurt.2SE    normtest.W    normtest.p 
+-3.103177e-02 -1.287281e-01 -5.502537e-02 -1.144033e-01  9.983133e-01  9.620303e-01 
 
 
 ====================
 Metric: min_perp | Model: gpt2 | Group: psychosis | Size: 40
-      nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
- 4.100000e+02  0.000000e+00  0.000000e+00  2.911819e+01  1.493047e+02  1.201865e+02  3.691320e+04  8.971790e+01 
-         mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
- 9.003219e+01  1.075166e+00  2.113541e+00  4.739528e+02  2.177046e+01  2.418075e-01  9.314937e-02  3.864086e-01 
-     kurtosis      kurt.2SE    normtest.W    normtest.p 
--2.119521e-01 -4.406698e-01  9.969244e-01  6.344667e-01 
+      nbr.val      nbr.null        nbr.na           min           max         range           sum 
+ 4.100000e+02  0.000000e+00  0.000000e+00  2.911819e+01  1.493047e+02  1.201865e+02  3.691320e+04 
+       median          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var 
+ 8.971790e+01  9.003219e+01  1.075166e+00  2.113541e+00  4.739528e+02  2.177046e+01  2.418075e-01 
+     skewness      skew.2SE      kurtosis      kurt.2SE    normtest.W    normtest.p 
+ 9.314937e-02  3.864086e-01 -2.119521e-01 -4.406698e-01  9.969244e-01  6.344667e-01 
 
 
 ====================
 Metric: min_perp | Model: gpt2 | Group: psychosis | Size: 50
-      nbr.val      nbr.null        nbr.na           min           max         range           sum        median 
- 4.100000e+02  0.000000e+00  0.000000e+00  3.757921e+01  1.511741e+02  1.135949e+02  3.718380e+04  9.071875e+01 
-         mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var      skewness      skew.2SE 
- 9.069220e+01  1.003451e+00  1.972565e+00  4.128347e+02  2.031833e+01  2.240362e-01  7.698079e-02  3.193370e-01 
-     kurtosis      kurt.2SE    normtest.W    normtest.p 
--2.723161e-01 -5.661726e-01  9.973353e-01  7.534264e-01 
+      nbr.val      nbr.null        nbr.na           min           max         range           sum 
+ 4.100000e+02  0.000000e+00  0.000000e+00  3.757921e+01  1.511741e+02  1.135949e+02  3.718380e+04 
+       median          mean       SE.mean  CI.mean.0.95           var       std.dev      coef.var 
+ 9.071875e+01  9.069220e+01  1.003451e+00  1.972565e+00  4.128347e+02  2.031833e+01  2.240362e-01 
+     skewness      skew.2SE      kurtosis      kurt.2SE    normtest.W    normtest.p 
+ 7.698079e-02  3.193370e-01 -2.723161e-01 -5.661726e-01  9.973353e-01  7.534264e-01 
 
 
