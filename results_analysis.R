@@ -307,11 +307,11 @@ for (metric in metrics) {
         scale_color_manual(values = group_colors) +
         facet_grid(rows = vars(size), cols = vars(group), scales = "free_y") +
         theme_minimal() +
-        labs(title = paste("Histogram | Metric:", metric_label, "| Model:", m),
+        labs(title = paste("Histogram | Metric:", metric_label, "| Model:", toupper(m)),
              x = metric_label, y = "Density")
       
       print(hist_plot)
-      ggsave(paste0(output_dir, "histogram_", metric, "_", m, ".png"),
+      ggsave(filename = paste0(output_dir, "histogram_", metric, "_", m, ".png"),
              plot = hist_plot, width = 10, height = 8, dpi = 300)
       
       # Violin plot with custom group colors
@@ -320,14 +320,85 @@ for (metric in metrics) {
         scale_fill_manual(values = group_colors) +
         facet_wrap(~group) +
         theme_minimal() +
-        labs(title = paste("Violin Plot | Metric:", metric_label, "| Model:", m),
+        labs(title = paste("Violin Plot | Metric:", metric_label, "| Model:", toupper(m)),
              x = "Size", y = metric_label)
       
       print(violin_plot)
-      ggsave(paste0(output_dir, "violin_", metric, "_", m, ".png"),
+      ggsave(filename = paste0(output_dir, "violin_", metric, "_", m, ".png"),
              plot = violin_plot, width = 10, height = 8, dpi = 300)
     })
   }
 }
 
+
+
+# violin plots with extra info to make them easier to read
+# define custom colors for groups
+group_colors <- c("control" = "#1A85FF", "psychosis" = "#D41B55")
+
+for (metric in metrics) {
+  for (m in models) {
+    
+    local({
+      df_combined <- map_dfr(groups, function(g) {
+        map_dfr(sizes, function(s) {
+          objname <- paste(m, g, s, sep = "_")
+          df <- get(paste(objname, "clean", sep = "_"))
+          df %>%
+            mutate(size = factor(s, levels = sizes),
+                   group = g)
+        })
+      })
+      
+      metric_label <- metric_labels[metric]
+    
+      
+      # compute mean and SD per group and size
+      summary_stats <- df_combined %>%
+        group_by(group, size) %>%
+        summarise(
+          mean_value = mean(.data[[metric]], na.rm = TRUE),
+          sd_value   = sd(.data[[metric]], na.rm = TRUE),
+          .groups = "drop"
+        )
+
+      violin_plot2 <- ggplot(df_combined, aes(x = size, y = .data[[metric]], fill = group)) +
+        geom_violin(trim = FALSE, alpha = 0.8, color = NA) +
+      
+        # Add mean point
+        geom_point(
+          data = summary_stats,
+          aes(x = size, y = mean_value, fill = group),
+          color = "black",
+          alpha = 0.5,
+          size = 2,
+          inherit.aes = FALSE
+        ) +
+      
+        # Add vertical error bar for SD
+        geom_errorbar(
+          data = summary_stats,
+          aes(x = size, ymin = mean_value - sd_value, ymax = mean_value + sd_value, group = group),
+          width = 0.15,
+          color = "black",
+          alpha = 0.5,
+          inherit.aes = FALSE
+        ) +
+      
+        scale_fill_manual(values = group_colors) +
+        facet_wrap(~group) +
+        theme_minimal() +
+        labs(
+          title = paste("Violin Plot | Metric:", metric_label, "| Model:", toupper(m)),
+          x = "Size",
+          y = metric_label
+        )
+
+      print(violin_plot2)
+      ggsave(filename = paste0(output_dir, "violin2_", metric, "_", m, ".png"),
+             plot = violin_plot2, width = 10, height = 8, dpi = 300)
+      
+    })
+  }
+}
 
