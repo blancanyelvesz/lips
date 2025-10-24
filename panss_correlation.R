@@ -3,7 +3,7 @@ library(dplyr)
 library(ggplot2)
 
 # define models, groups, sizes, metrics, and panss measures
-models <- c("gpt2", "qwen3", "falcon", "geitje")
+models <- c("gpt2", "falcon", "qwen3", "geitje")
 groups <- c("control", "psychosis")
 sizes <- c("10","20","30","40","50")
 metrics <- c("mean_perp", "sd_perp", "min_perp", "max_perp")
@@ -127,6 +127,8 @@ for (m in models) {
 
 # plot heatmaps
 all_results <- map_dfr(models, ~ get(paste("PANSS_cor_results", .x, sep = "_")))
+
+# get global limits for consistent color scaling
 global_min <- min(all_results$estimate, na.rm = TRUE)
 global_max <- max(all_results$estimate, na.rm = TRUE)
 limit <- max(abs(global_min), abs(global_max))
@@ -154,8 +156,70 @@ for (m in models) {
            fill = "Correlation")
     
     print(heatmap)
-    ggsave(filename = paste0(output_dir, "PANSS_heatmap_", m, ".png"), 
+    ggsave(filename = paste0(output_dir, "PANSS_heatmap", m, ".png"), 
            plot = heatmap, width = 10, height = 6)
   })
 }
+
+
+# plots with metric perspective instead
+# Combine all models’ correlation results
+all_results <- map_dfr(models, ~ {
+  get(paste("PANSS_cor_results", .x, sep = "_")) %>%
+    mutate(model = toupper(.x))  # add model name in uppercase
+})
+
+# Get global limits for consistent color scaling
+global_min <- min(all_results$estimate, na.rm = TRUE)
+global_max <- max(all_results$estimate, na.rm = TRUE)
+limit <- max(abs(global_min), abs(global_max))
+
+# Desired facet order
+model_order <- c("GPT2", "FALCON", "QWEN3", "GEITJE")
+
+# Loop over metrics instead of models
+for (metric_name in unique(all_results$metric)) {
+  local({
+    metric_df <- all_results %>%
+      filter(metric == metric_name) %>%
+      mutate(
+        PANSS = factor(PANSS, levels = names(panss_labels)),
+        model = factor(model, levels = model_order)
+      )
+    
+    heatmap <- ggplot(metric_df, aes(x = size, y = PANSS, fill = estimate)) +
+      geom_tile(color = "white") +
+      scale_fill_gradient2(
+        low = "#1A85FF", 
+        mid = "#FFFFFF", 
+        high = "#D41B55", 
+        midpoint = 0,
+        limits = c(-limit, limit)
+      ) +
+      facet_wrap(
+        ~ model,
+        scales = "free",
+        labeller = label_both
+      ) +
+      scale_y_discrete(labels = panss_labels) +
+      theme_minimal() +
+      labs(
+        title = paste0(
+          "Correlation between ", metric_labels[[metric_name]],
+          " and PANSS scores across models"
+        ),
+        x = "Window Size",
+        y = "PANSS Score",
+        fill = "Correlation"
+      )
+    
+    print(heatmap)
+    ggsave(
+      filename = paste0(output_dir, "PANSS_heatmap_", metric_name, ".png"), 
+      plot = heatmap, 
+      width = 10, height = 6
+    )
+  })
+}
+
 
