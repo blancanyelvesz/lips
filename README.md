@@ -1,6 +1,6 @@
 # LIPS
 
-This repository contains all the code developed for the Master's thesis **[ExploringPerplexity_RUG.pdf](./ExploringPerplexity_RUG.pdf)**.
+This repository contains all the code developed for the Master's thesis [ExploringPerplexity_RUG.pdf](./ExploringPerplexity_RUG.pdf), also available at the [Thesis Repository of the University of Groningen](https://arts.studenttheses.ub.rug.nl/38278/).
 
 ## Scope
 
@@ -8,7 +8,7 @@ All scripts and notebooks in this repository were written in support of the anal
 
 - `panss_correlation_items.R` is **not** part of the thesis work. This script is being developed for a separate, forthcoming paper that explores the item-level PANSS correlation analysis in greater depth than the thesis does.
 
-- `panss_outputs/PANSS_item_*.png` are outputs from `panss_correlation_items.R`and thus are also **not** part of the thesis work.
+- `panss_outputs/PANSS_item_*.png` are outputs from `panss_correlation_items.R` and thus are also **not** part of the thesis work.
 
 If you are looking to reproduce or review the thesis results specifically, you can disregard these files.
 
