@@ -20,6 +20,8 @@ If you are looking to reproduce or review the thesis results specifically, you c
 | `preprocessing` | Python scripts used to preprocess texts before calculating perplexity.  |
 | `perplexity_scripts` | Python scripts used to calculate perplexity scores across different models and context sizes. |
 | `requirements.R` | Requirements to run the R scripts. |
+| `results_analysis.R` | Analysis of perplexity scores before their use in the study. |
+| `exploration_outputs` | Outputs of `results_analysis.R.R`. |
 | `data_analysis.R` | Analysis of participants' demographic and clinical data. |
 | `demographics_outputs` | Outputs of `data_analysis.R`. |
 | `mixedeffects.R` | Linear mixed effects models to test whether perplexity depends on diagnostic group and context size. |
