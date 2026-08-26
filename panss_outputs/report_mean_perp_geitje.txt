@@ -1,0 +1,80 @@
+### Model: geitje | Metric: mean_perp | Size: 10 | PANSS: panss_positive
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between mean_perp and panss_positive is positive, statistically significant, and small (r = 0.20, 95% CI [0.10, 0.30], t(346) = 3.78, p < .001)
+
+
+
+### Model: geitje | Metric: mean_perp | Size: 10 | PANSS: panss_negative
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between mean_perp and panss_negative is positive, statistically not significant, and very small (r = 0.09, 95% CI [-0.01, 0.20], t(346) = 1.73, p = 0.085)
+
+
+
+### Model: geitje | Metric: mean_perp | Size: 20 | PANSS: panss_positive
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between mean_perp and panss_positive is positive, statistically significant, and medium (r = 0.24, 95% CI [0.14, 0.34], t(347) = 4.59, p < .001)
+
+
+
+### Model: geitje | Metric: mean_perp | Size: 20 | PANSS: panss_negative
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between mean_perp and panss_negative is positive, statistically not significant, and very small (r = 0.08, 95% CI [-0.03, 0.18], t(347) = 1.43, p = 0.154)
+
+
+
+### Model: geitje | Metric: mean_perp | Size: 30 | PANSS: panss_positive
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between mean_perp and panss_positive is positive, statistically significant, and medium (r = 0.25, 95% CI [0.15, 0.35], t(347) = 4.90, p < .001)
+
+
+
+### Model: geitje | Metric: mean_perp | Size: 30 | PANSS: panss_negative
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between mean_perp and panss_negative is positive, statistically not significant, and very small (r = 0.08, 95% CI [-0.03, 0.18], t(347) = 1.41, p = 0.160)
+
+
+
+### Model: geitje | Metric: mean_perp | Size: 40 | PANSS: panss_positive
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between mean_perp and panss_positive is positive, statistically significant, and medium (r = 0.26, 95% CI [0.16, 0.36], t(347) = 5.10, p < .001)
+
+
+
+### Model: geitje | Metric: mean_perp | Size: 40 | PANSS: panss_negative
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between mean_perp and panss_negative is positive, statistically not significant, and very small (r = 0.07, 95% CI [-0.03, 0.18], t(347) = 1.38, p = 0.167)
+
+
+
+### Model: geitje | Metric: mean_perp | Size: 50 | PANSS: panss_positive
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between mean_perp and panss_positive is positive, statistically significant, and medium (r = 0.28, 95% CI [0.18, 0.37], t(348) = 5.45, p < .001)
+
+
+
+### Model: geitje | Metric: mean_perp | Size: 50 | PANSS: panss_negative
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between mean_perp and panss_negative is positive, statistically not significant, and very small (r = 0.08, 95% CI [-0.02, 0.19], t(348) = 1.55, p = 0.123)
+
+
+

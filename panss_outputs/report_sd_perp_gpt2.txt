@@ -1,0 +1,80 @@
+### Model: gpt2 | Metric: sd_perp | Size: 10 | PANSS: panss_positive
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_positive is negative, statistically not significant, and tiny (r = -0.05, 95% CI [-0.15, 0.06], t(343) = -0.92, p = 0.357)
+
+
+
+### Model: gpt2 | Metric: sd_perp | Size: 10 | PANSS: panss_negative
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_negative is negative, statistically not significant, and tiny (r = -0.04, 95% CI [-0.14, 0.07], t(343) = -0.71, p = 0.477)
+
+
+
+### Model: gpt2 | Metric: sd_perp | Size: 20 | PANSS: panss_positive
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_positive is negative, statistically not significant, and tiny (r = -0.04, 95% CI [-0.15, 0.06], t(344) = -0.76, p = 0.449)
+
+
+
+### Model: gpt2 | Metric: sd_perp | Size: 20 | PANSS: panss_negative
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_negative is positive, statistically not significant, and tiny (r = 0.05, 95% CI [-0.06, 0.15], t(344) = 0.87, p = 0.387)
+
+
+
+### Model: gpt2 | Metric: sd_perp | Size: 30 | PANSS: panss_positive
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_positive is negative, statistically not significant, and very small (r = -0.08, 95% CI [-0.18, 0.03], t(344) = -1.44, p = 0.150)
+
+
+
+### Model: gpt2 | Metric: sd_perp | Size: 30 | PANSS: panss_negative
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_negative is positive, statistically not significant, and tiny (r = 1.63e-03, 95% CI [-0.10, 0.11], t(344) = 0.03, p = 0.976)
+
+
+
+### Model: gpt2 | Metric: sd_perp | Size: 40 | PANSS: panss_positive
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_positive is negative, statistically not significant, and very small (r = -0.07, 95% CI [-0.18, 0.03], t(347) = -1.36, p = 0.175)
+
+
+
+### Model: gpt2 | Metric: sd_perp | Size: 40 | PANSS: panss_negative
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_negative is positive, statistically not significant, and tiny (r = 2.36e-03, 95% CI [-0.10, 0.11], t(347) = 0.04, p = 0.965)
+
+
+
+### Model: gpt2 | Metric: sd_perp | Size: 50 | PANSS: panss_positive
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_positive is negative, statistically not significant, and very small (r = -0.07, 95% CI [-0.18, 0.03], t(348) = -1.40, p = 0.164)
+
+
+
+### Model: gpt2 | Metric: sd_perp | Size: 50 | PANSS: panss_negative
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_negative is negative, statistically not significant, and tiny (r = -0.02, 95% CI [-0.13, 0.08], t(348) = -0.40, p = 0.687)
+
+
+

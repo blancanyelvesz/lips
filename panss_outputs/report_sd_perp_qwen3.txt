@@ -1,0 +1,80 @@
+### Model: qwen3 | Metric: sd_perp | Size: 10 | PANSS: panss_positive
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_positive is positive, statistically not significant, and very small (r = 0.06, 95% CI [-0.05, 0.16], t(343) = 1.04, p = 0.299)
+
+
+
+### Model: qwen3 | Metric: sd_perp | Size: 10 | PANSS: panss_negative
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_negative is negative, statistically not significant, and tiny (r = -0.03, 95% CI [-0.13, 0.08], t(343) = -0.55, p = 0.584)
+
+
+
+### Model: qwen3 | Metric: sd_perp | Size: 20 | PANSS: panss_positive
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_positive is positive, statistically not significant, and very small (r = 0.05, 95% CI [-0.05, 0.16], t(347) = 0.97, p = 0.335)
+
+
+
+### Model: qwen3 | Metric: sd_perp | Size: 20 | PANSS: panss_negative
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_negative is negative, statistically not significant, and tiny (r = -0.04, 95% CI [-0.15, 0.06], t(347) = -0.83, p = 0.408)
+
+
+
+### Model: qwen3 | Metric: sd_perp | Size: 30 | PANSS: panss_positive
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_positive is positive, statistically not significant, and tiny (r = 0.03, 95% CI [-0.08, 0.13], t(347) = 0.47, p = 0.640)
+
+
+
+### Model: qwen3 | Metric: sd_perp | Size: 30 | PANSS: panss_negative
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_negative is negative, statistically not significant, and tiny (r = -0.03, 95% CI [-0.13, 0.08], t(347) = -0.47, p = 0.640)
+
+
+
+### Model: qwen3 | Metric: sd_perp | Size: 40 | PANSS: panss_positive
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_positive is positive, statistically not significant, and tiny (r = 0.04, 95% CI [-0.07, 0.14], t(345) = 0.70, p = 0.484)
+
+
+
+### Model: qwen3 | Metric: sd_perp | Size: 40 | PANSS: panss_negative
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_negative is positive, statistically not significant, and tiny (r = 0.01, 95% CI [-0.09, 0.12], t(345) = 0.26, p = 0.795)
+
+
+
+### Model: qwen3 | Metric: sd_perp | Size: 50 | PANSS: panss_positive
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_positive is positive, statistically not significant, and tiny (r = 0.04, 95% CI [-0.06, 0.15], t(346) = 0.77, p = 0.443)
+
+
+
+### Model: qwen3 | Metric: sd_perp | Size: 50 | PANSS: panss_negative
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_negative is positive, statistically not significant, and tiny (r = 6.30e-03, 95% CI [-0.10, 0.11], t(346) = 0.12, p = 0.907)
+
+
+

@@ -1,0 +1,80 @@
+### Model: falcon | Metric: max_perp | Size: 10 | PANSS: panss_positive
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between max_perp and panss_positive is positive, statistically not significant, and very small (r = 0.08, 95% CI [-0.02, 0.19], t(344) = 1.57, p = 0.117)
+
+
+
+### Model: falcon | Metric: max_perp | Size: 10 | PANSS: panss_negative
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between max_perp and panss_negative is negative, statistically not significant, and very small (r = -0.07, 95% CI [-0.17, 0.04], t(344) = -1.29, p = 0.199)
+
+
+
+### Model: falcon | Metric: max_perp | Size: 20 | PANSS: panss_positive
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between max_perp and panss_positive is positive, statistically significant, and small (r = 0.14, 95% CI [0.03, 0.24], t(343) = 2.60, p = 0.010)
+
+
+
+### Model: falcon | Metric: max_perp | Size: 20 | PANSS: panss_negative
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between max_perp and panss_negative is negative, statistically not significant, and very small (r = -0.07, 95% CI [-0.17, 0.04], t(343) = -1.24, p = 0.215)
+
+
+
+### Model: falcon | Metric: max_perp | Size: 30 | PANSS: panss_positive
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between max_perp and panss_positive is positive, statistically significant, and small (r = 0.11, 95% CI [5.31e-04, 0.21], t(347) = 1.98, p = 0.049)
+
+
+
+### Model: falcon | Metric: max_perp | Size: 30 | PANSS: panss_negative
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between max_perp and panss_negative is negative, statistically not significant, and very small (r = -0.10, 95% CI [-0.20, 6.47e-03], t(347) = -1.85, p = 0.066)
+
+
+
+### Model: falcon | Metric: max_perp | Size: 40 | PANSS: panss_positive
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between max_perp and panss_positive is positive, statistically not significant, and small (r = 0.11, 95% CI [-7.92e-05, 0.21], t(345) = 1.96, p = 0.050)
+
+
+
+### Model: falcon | Metric: max_perp | Size: 40 | PANSS: panss_negative
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between max_perp and panss_negative is negative, statistically significant, and small (r = -0.12, 95% CI [-0.22, -0.02], t(345) = -2.25, p = 0.025)
+
+
+
+### Model: falcon | Metric: max_perp | Size: 50 | PANSS: panss_positive
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between max_perp and panss_positive is positive, statistically significant, and small (r = 0.11, 95% CI [0.01, 0.22], t(349) = 2.16, p = 0.032)
+
+
+
+### Model: falcon | Metric: max_perp | Size: 50 | PANSS: panss_negative
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between max_perp and panss_negative is negative, statistically not significant, and very small (r = -0.10, 95% CI [-0.20, 4.78e-03], t(349) = -1.88, p = 0.061)
+
+
+

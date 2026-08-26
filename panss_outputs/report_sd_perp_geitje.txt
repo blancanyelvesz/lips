@@ -1,0 +1,80 @@
+### Model: geitje | Metric: sd_perp | Size: 10 | PANSS: panss_positive
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_positive is positive, statistically significant, and small (r = 0.14, 95% CI [0.03, 0.24], t(345) = 2.56, p = 0.011)
+
+
+
+### Model: geitje | Metric: sd_perp | Size: 10 | PANSS: panss_negative
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_negative is positive, statistically not significant, and tiny (r = 0.04, 95% CI [-0.07, 0.14], t(345) = 0.72, p = 0.472)
+
+
+
+### Model: geitje | Metric: sd_perp | Size: 20 | PANSS: panss_positive
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_positive is positive, statistically significant, and small (r = 0.13, 95% CI [0.02, 0.23], t(348) = 2.39, p = 0.017)
+
+
+
+### Model: geitje | Metric: sd_perp | Size: 20 | PANSS: panss_negative
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_negative is positive, statistically not significant, and tiny (r = 0.03, 95% CI [-0.08, 0.13], t(348) = 0.48, p = 0.635)
+
+
+
+### Model: geitje | Metric: sd_perp | Size: 30 | PANSS: panss_positive
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_positive is positive, statistically significant, and small (r = 0.14, 95% CI [0.04, 0.25], t(347) = 2.72, p = 0.007)
+
+
+
+### Model: geitje | Metric: sd_perp | Size: 30 | PANSS: panss_negative
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_negative is positive, statistically not significant, and very small (r = 0.05, 95% CI [-0.05, 0.16], t(347) = 0.99, p = 0.322)
+
+
+
+### Model: geitje | Metric: sd_perp | Size: 40 | PANSS: panss_positive
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_positive is positive, statistically significant, and small (r = 0.19, 95% CI [0.09, 0.29], t(344) = 3.63, p < .001)
+
+
+
+### Model: geitje | Metric: sd_perp | Size: 40 | PANSS: panss_negative
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_negative is positive, statistically not significant, and very small (r = 0.06, 95% CI [-0.04, 0.17], t(344) = 1.20, p = 0.232)
+
+
+
+### Model: geitje | Metric: sd_perp | Size: 50 | PANSS: panss_positive
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_positive is positive, statistically significant, and small (r = 0.19, 95% CI [0.08, 0.29], t(344) = 3.53, p < .001)
+
+
+
+### Model: geitje | Metric: sd_perp | Size: 50 | PANSS: panss_negative
+
+Effect sizes were labelled following Funder's (2019) recommendations.
+
+The Pearson's product-moment correlation between sd_perp and panss_negative is positive, statistically not significant, and very small (r = 0.08, 95% CI [-0.03, 0.18], t(344) = 1.40, p = 0.161)
+
+
+
