@@ -1,6 +1,10 @@
 knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
+library(tidyverse)
 library(ggplot2)
+library(report)
+library(readxl)
+library(grid)
 
 # define models, groups, sizes, metrics, and panss measures
 models <- c("gpt2", "falcon", "qwen3", "geitje")
@@ -10,14 +14,14 @@ metrics <- c("mean_perp", "sd_perp", "min_perp", "max_perp")
 metric_labels <- c(
   mean_perp = "mean perp.",
   sd_perp   = "SD perp.",
-  min_perp  = "min perp.",
-  max_perp  = "max perp."
+  min_perp  = "minimum perp.",
+  max_perp  = "maximum perp."
 )
 #panss_cols <- c("panss_total", "panss_positive", "panss_negative", "panss_general")
 panss_cols <- c("panss_positive", "panss_negative")
 panss_labels <- c(
-  panss_positive = "PANSS positive", 
-  panss_negative = "PANSS negative"
+  panss_positive = "PANSS pos.", 
+  panss_negative = "PANSS neg."
 )
 
 # define directories
@@ -70,6 +74,7 @@ for (m in models) {
         group_modify(~ {
           map_dfr(panss_cols, function(col) {
             res <- cor.test(.x[[metric]], .x[[col]], method = "pearson")
+            
             broom::tidy(res) %>%
               rename(t_value = statistic, df = parameter) %>%
               mutate(PANSS = col)
@@ -87,6 +92,7 @@ for (m in models) {
     obj_name <- paste("PANSS_cor_results", m, sep = "_")
     assign(obj_name, model_results, envir = .GlobalEnv)
     write_csv(model_results, file = paste0(output_dir, obj_name, ".csv"))
+    
   })
 }
 
@@ -125,8 +131,11 @@ for (m in models) {
 }
 
 
-# plot heatmaps
-all_results <- map_dfr(models, ~ get(paste("PANSS_cor_results", .x, sep = "_")))
+# plot heatmaps with scores
+all_results <- map_dfr(models, ~ {
+  get(paste("PANSS_cor_results", .x, sep = "_")) %>%
+    mutate(model = toupper(.x))
+})
 
 # get global limits for consistent color scaling
 global_min <- min(all_results$estimate, na.rm = TRUE)
@@ -136,10 +145,22 @@ limit <- max(abs(global_min), abs(global_max))
 for (m in models) {
   local({
     cor_df <- get(paste("PANSS_cor_results", m, sep = "_")) %>%
-      mutate(PANSS = factor(PANSS, levels = names(panss_labels)))
+      mutate(
+        PANSS = factor(PANSS, levels = names(panss_labels)),
+        # create significance stars
+        stars = case_when(
+          p.value < 0.001 ~ "***",
+          p.value < 0.01  ~ "**",
+          p.value < 0.05  ~ "*",
+          TRUE ~ ""
+        ),
+        # label with correlation + stars
+        label = paste0(round(estimate, 2), stars)
+      )
     
     heatmap <- ggplot(cor_df, aes(x = size, y = PANSS, fill = estimate)) +
       geom_tile(color = "white") +
+      geom_text(aes(label = label), color = "black", size = 3) +
       scale_fill_gradient2(low = "#1A85FF", 
                            mid = "#FFFFFF", 
                            high = "#D41B55", 
@@ -149,20 +170,24 @@ for (m in models) {
                  scales = "free",
                  labeller = as_labeller(metric_labels)) +
       scale_y_discrete(labels = panss_labels) +
-      theme_minimal() +
+      theme_minimal(base_size = 14) +
+      theme(
+        panel.grid = element_blank(),
+        axis.text.x = element_text(angle = 45, hjust = 1)
+      ) +
       labs(title = paste0("Correlation between perplexity metrics and PANSS scores (", toupper(m), ")"),
            x = "Window Size",
            y = "PANSS Score",
            fill = "Correlation")
     
     print(heatmap)
-    ggsave(filename = paste0(output_dir, "PANSS_heatmap", m, ".png"), 
-           plot = heatmap, width = 10, height = 6)
+    ggsave(filename = paste0(output_dir, "PANSS_heatmapscores_", m, ".png"), 
+           plot = heatmap, width = 10, height = 6, dpi = 300)
   })
 }
 
 
-# plots with metric perspective instead
+# Now with scores
 # Combine all models’ correlation results
 all_results <- map_dfr(models, ~ {
   get(paste("PANSS_cor_results", .x, sep = "_")) %>%
@@ -177,18 +202,28 @@ limit <- max(abs(global_min), abs(global_max))
 # Desired facet order
 model_order <- c("GPT2", "FALCON", "QWEN3", "GEITJE")
 
-# Loop over metrics instead of models
+# Loop over metrics
 for (metric_name in unique(all_results$metric)) {
   local({
     metric_df <- all_results %>%
       filter(metric == metric_name) %>%
       mutate(
         PANSS = factor(PANSS, levels = names(panss_labels)),
-        model = factor(model, levels = model_order)
+        model = factor(model, levels = model_order),
+        # create significance stars
+        stars = case_when(
+          p.value < 0.001 ~ "***",
+          p.value < 0.01  ~ "**",
+          p.value < 0.05  ~ "*",
+          TRUE ~ ""
+        ),
+        # label with correlation + stars
+        label = paste0(round(estimate, 2), stars)
       )
     
-    heatmap <- ggplot(metric_df, aes(x = size, y = PANSS, fill = estimate)) +
+    heatmapscores <- ggplot(metric_df, aes(x = size, y = PANSS, fill = estimate)) +
       geom_tile(color = "white") +
+      geom_text(aes(label = label), color = "black", size = 3) +  # numbers + stars inside tiles
       scale_fill_gradient2(
         low = "#1A85FF", 
         mid = "#FFFFFF", 
@@ -199,10 +234,14 @@ for (metric_name in unique(all_results$metric)) {
       facet_wrap(
         ~ model,
         scales = "free",
-        labeller = label_both
+        labeller = label_value
       ) +
       scale_y_discrete(labels = panss_labels) +
-      theme_minimal() +
+      theme_minimal(base_size = 14) +
+      theme(
+        panel.grid = element_blank(),
+        axis.text.x = element_text(angle = 45, hjust = 1)
+      ) +
       labs(
         title = paste0(
           "Correlation between ", metric_labels[[metric_name]],
@@ -213,13 +252,12 @@ for (metric_name in unique(all_results$metric)) {
         fill = "Correlation"
       )
     
-    print(heatmap)
+    print(heatmapscores)
     ggsave(
-      filename = paste0(output_dir, "PANSS_heatmap_", metric_name, ".png"), 
-      plot = heatmap, 
-      width = 10, height = 6
+      filename = paste0(output_dir, "PANSS_heatmapscores_", metric_name, ".png"), 
+      plot = heatmapscores, 
+      width = 10, height = 6, dpi = 300
     )
   })
 }
-
 
